@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="AnhPhat" Class="DataClassesDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=(local);Initial Catalog=AnhPhat;Persist Security Info=True;User ID=sa" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="AnhPhatConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.TAIKHOAN" Member="TAIKHOANs">
+    <Type Name="TAIKHOAN">
+      <Column Name="ID" Type="System.String" DbType="NVarChar(250) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="HOTEN" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="MATKHAU" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="NGAYCAP" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="QUYEN" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Function Name="dbo.sp_DangNhap" Method="sp_DangNhap">
+    <Parameter Name="taikhoan" Type="System.String" DbType="NVarChar(250)" />
+    <Parameter Name="matkhau" Type="System.String" DbType="NVarChar(250)" />
+    <ElementType Name="sp_DangNhapResult">
+      <Column Name="ID" Type="System.String" DbType="NVarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="HOTEN" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="MATKHAU" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="NGAYCAP" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="QUYEN" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+</Database>

@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNet.Identity;
 using Microsoft.Owin.Security;
 
-namespace AnhPhatMVC.Models
+namespace AnhPhatMVC.Areas.Admin.Models
 {
     public class IndexViewModel
     {

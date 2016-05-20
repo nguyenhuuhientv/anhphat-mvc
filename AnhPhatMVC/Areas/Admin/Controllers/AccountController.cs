@@ -8,7 +8,8 @@ using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
-using AnhPhatMVC.Models;
+using AnhPhatMVC.Areas.Admin.Models;
+using AnhPhatMVC.Data;
 
 namespace AnhPhatMVC.Areas.Admin.Controllers
 {
@@ -17,6 +18,7 @@ namespace AnhPhatMVC.Areas.Admin.Controllers
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
+        DataClassesDataContext data = new DataClassesDataContext();
 
         public AccountController()
         {
@@ -75,16 +77,23 @@ namespace AnhPhatMVC.Areas.Admin.Controllers
 
             // This doesn't count login failures towards account lockout
             // To enable password failures to trigger account lockout, change to shouldLockout: true
-            var result = await SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout: false);
-            switch (result)
+            var result = data.sp_DangNhap(model.Email, model.Password).ToList();//await SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout: false);
+            int temp;
+            if (result != null)
+                temp = 0;
+            else
+                temp = 1;
+
+            switch (temp)
             {
-                case SignInStatus.Success:
+                case 0:
+                    Session["TaiKhoan"] = result.FirstOrDefault().ID;
                     return RedirectToLocal(returnUrl);
-                case SignInStatus.LockedOut:
+                case 2:
                     return View("Lockout");
-                case SignInStatus.RequiresVerification:
+                case 3:
                     return RedirectToAction("SendCode", new { ReturnUrl = returnUrl, RememberMe = model.RememberMe });
-                case SignInStatus.Failure:
+                case 1:
                 default:
                     ModelState.AddModelError("", "Invalid login attempt.");
                     return View(model);
@@ -387,11 +396,12 @@ namespace AnhPhatMVC.Areas.Admin.Controllers
 
         //
         // POST: /Account/LogOff
-        [HttpPost]
+        [HttpGet]
         [ValidateAntiForgeryToken]
         public ActionResult LogOff()
         {
             AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
+            Session.Remove("TaiKhoan");
             return RedirectToAction("Index", "Home");
         }
 

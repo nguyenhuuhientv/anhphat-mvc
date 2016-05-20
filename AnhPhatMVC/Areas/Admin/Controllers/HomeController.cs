@@ -11,7 +11,11 @@ namespace AnhPhatMVC.Areas.Admin.Controllers
         // GET: Admin/Home
         public ActionResult Index()
         {
-            return View();
-        }
+            bool temp = new KiemTraDangNhapController().KiemTra();
+            if (temp)
+                return View();
+            else
+                return RedirectToAction("Login", "Account");
+        }       
     }
 }

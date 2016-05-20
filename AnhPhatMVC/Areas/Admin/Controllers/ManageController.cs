@@ -6,9 +6,9 @@ using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
-using AnhPhatMVC.Models;
-
-namespace AnhPhatMVC.Controllers
+using AnhPhatMVC.Areas.Admin.Models;
+             
+namespace AnhPhatMVC.Areas.Admin.Controllers
 {
     [Authorize]
     public class ManageController : Controller
