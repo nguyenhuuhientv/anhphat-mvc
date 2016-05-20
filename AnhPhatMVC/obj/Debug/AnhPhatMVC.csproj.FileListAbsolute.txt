@@ -79,3 +79,4 @@ D:\C#\ASP\anhphat-mvc\AnhPhatMVC\bin\Microsoft.Owin.Security.Twitter.xml
 D:\C#\ASP\anhphat-mvc\AnhPhatMVC\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 D:\C#\ASP\anhphat-mvc\AnhPhatMVC\obj\Debug\AnhPhatMVC.dll
 D:\C#\ASP\anhphat-mvc\AnhPhatMVC\obj\Debug\AnhPhatMVC.pdb
+D:\C#\ASP\anhphat-mvc\AnhPhatMVC\obj\Debug\AnhPhatMVC.csprojResolveAssemblyReference.cache
