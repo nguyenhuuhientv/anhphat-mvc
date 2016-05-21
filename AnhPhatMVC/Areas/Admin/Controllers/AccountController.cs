@@ -22,6 +22,14 @@ namespace AnhPhatMVC.Areas.Admin.Controllers
 
         public AccountController()
         {
+            String temp = "";
+            try
+            {
+                temp = System.Web.HttpContext.Current.Session["TaiKhoan"].ToString();
+            }
+            catch { }
+            if (temp != null && !temp.Equals(""))
+                System.Web.HttpContext.Current.Session.Remove("TaiKhoan");            
         }
 
         public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager )
@@ -396,7 +404,7 @@ namespace AnhPhatMVC.Areas.Admin.Controllers
 
         //
         // POST: /Account/LogOff
-        [HttpGet]
+        [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult LogOff()
         {
