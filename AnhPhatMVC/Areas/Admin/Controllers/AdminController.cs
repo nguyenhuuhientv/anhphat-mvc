@@ -11,7 +11,7 @@ namespace AnhPhatMVC.Areas.Admin.Controllers
         // GET: Admin/Admin
         public ActionResult Index()
         {
-            return View();
+            return new ManagerController().KiemTraDaDangNhap(View());
         }
     }
 }

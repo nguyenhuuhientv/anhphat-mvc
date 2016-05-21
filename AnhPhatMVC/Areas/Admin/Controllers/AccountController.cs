@@ -15,7 +15,7 @@ namespace AnhPhatMVC.Areas.Admin.Controllers
         AnhPhatDbContextDataContext data = new AnhPhatDbContextDataContext();
         public ActionResult Login()
         {
-            return View();
+            return new ManagerController().KiemTra(View());
         }
 
         [HttpPost]
@@ -51,6 +51,12 @@ namespace AnhPhatMVC.Areas.Admin.Controllers
         private ActionResult RedirectToLocal(string returnUrl)
         {
             throw new NotImplementedException();
+        }
+        public ActionResult LogOff()
+        {
+            System.Web.HttpContext.Current.Session.Remove("TaiKhoan");
+            System.Web.HttpContext.Current.Session.Remove("Quyen");
+            return RedirectToAction("Login", "Account");
         }
     }
 }

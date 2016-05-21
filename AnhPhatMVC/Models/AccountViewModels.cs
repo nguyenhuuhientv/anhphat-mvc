@@ -50,7 +50,7 @@ namespace AnhPhatMVC.Models
     {
         [Required]
         [Display(Name = "Email")]
-        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
+        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 5)]
         public string Email { get; set; }
 
         [Required]
@@ -65,7 +65,7 @@ namespace AnhPhatMVC.Models
     public class RegisterViewModel
     {
         [Required]
-        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
+        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 5)]
         [Display(Name = "Email")]
         public string Email { get; set; }
 
@@ -84,7 +84,7 @@ namespace AnhPhatMVC.Models
     public class ResetPasswordViewModel
     {
         [Required]
-        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
+        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 5)]
         [Display(Name = "Email")]
         public string Email { get; set; }
 
@@ -105,7 +105,7 @@ namespace AnhPhatMVC.Models
     public class ForgotPasswordViewModel
     {
         [Required]
-        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
+        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength  = 5 )]
         [Display(Name = "Email")]
         public string Email { get; set; }
     }
