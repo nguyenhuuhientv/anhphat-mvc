@@ -32,7 +32,7 @@ namespace AnhPhatMVC.Areas.Admin.Controllers
             switch (temp)
             {
                 case 0:
-                    System.Web.HttpContext.Current.Session["TaiKhoan"] = result.FirstOrDefault().id;
+                    System.Web.HttpContext.Current.Session["TaiKhoan"] = result.FirstOrDefault().username;
                     System.Web.HttpContext.Current.Session["Quyen"] = result.FirstOrDefault().role;
                     return RedirectToAction("Index","Admin");
                 case 2:

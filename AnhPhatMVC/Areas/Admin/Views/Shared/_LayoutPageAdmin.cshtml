@@ -1,4 +1,7 @@
-﻿<!DOCTYPE html>
+﻿@{
+    String quyen = System.Web.HttpContext.Current.Session["Quyen"].ToString();
+}
+<!DOCTYPE html>
 
 <html lang="en">
 <head>
@@ -71,29 +74,15 @@
                             <img class="nav-user-photo" src="~/Content/TemplateAdmin/assets/avatars/user.jpg" alt="Jason's Photo" />
                             <span class="user-info">
                                 <small>Welcome,</small>
-                                Jason
+                                @(System.Web.HttpContext.Current.Session["TaiKhoan"])
                             </span>
 
                             <i class="ace-icon fa fa-caret-down"></i>
                         </a>
 
                         <ul class="user-menu dropdown-menu-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
-                            <li>
-                                <a href="#">
-                                    <i class="ace-icon fa fa-cog"></i>
-                                    Settings
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="profile.html">
-                                    <i class="ace-icon fa fa-user"></i>
-                                    Profile
-                                </a>
-                            </li>
-
+                        
                             <li class="divider"></li>
-
                             <li>
                                 <a href="/Admin/Account/LogOff" ac>
                                     <i class="ace-icon fa fa-power-off"></i>
@@ -134,14 +123,17 @@
             </div> /.sidebar-shortcuts*@ 
 
             <ul class="nav nav-list">
-                <li class="">
-                    <a href="index">
-                        <i class="menu-icon fa fa-tachometer"></i>
-                        <span class="menu-text"> Home </span>
-                    </a>
+                @if (quyen.Equals("1"))
+                {
+                    <li class="">
+                        <a href="index">
+                            <i class="menu-icon fa fa-tachometer"></i>
+                            <span class="menu-text"> Tài khoản </span>
+                        </a>
 
-                    <b class="arrow"></b>
-                </li>
+                        <b class="arrow"></b>
+                    </li>
+                }               
 
                 <li class="">
                     <a href="#" class="dropdown-toggle">
