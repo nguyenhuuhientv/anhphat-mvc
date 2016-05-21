@@ -17,15 +17,22 @@ namespace AnhPhatMVC
             // Use the development version of Modernizr to develop with and learn from. Then, when you're
             // ready for production, use the build tool at http://modernizr.com to pick only the tests you need.
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
-                        "~/Scripts/modernizr-*"));
+                        "~/Scripts/modernizr-*",
+                        "~/Scripts/main.js",
+                        "~/Scripts/bootstrap.min.js",
+                        "~/Scripts/jquery.bxslider.min.js"
+                        ));
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
                       "~/Scripts/bootstrap.js",
                       "~/Scripts/respond.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap.css",
-                      "~/Content/site.css"));
+                      "~/Content/bootstrap.min.css",
+                      "~/Content/main.css",
+                      "~/Content/jquery.bxslider.css",
+                      "~/Content/font-awesome.min.css"
+                      ));
         }
     }
 }

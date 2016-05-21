@@ -1,44 +1,285 @@
 ﻿<!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+    <title>@ViewBag.Title</title>
     @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
-
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
+    <!-- Static navbar top -->
+    <div class="header">
+        <div class="container">
+            <div class="row">
+                <ul class="nav navbar-nav col-md-6 col-xs-12">
+                    <!--<li><a href="#">Home</a></li>-->
+                    <li class="col-xs-12 col-md-6"><a href="#about"><i class="fa fa-envelope-o" aria-hidden="true"></i> anhphat@gmail.com </a></li>
+                    <li class="col-xs-12 col-md-6"><a href="#about"><i class="fa fa-phone" aria-hidden="true"></i> 0988 234 726 </a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right col-md-6 pull-right col-xs-12">
+                    <li class="col-md-1 col-xs-3 text-center pull-right"><a href="../navbar/"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                    <li class="col-md-1 col-xs-3 text-center pull-right"><a href="./"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+                    <li class="col-md-1 col-xs-3 text-center pull-right"><a href="./"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                    <li class="col-md-1 col-xs-3 text-center pull-right"><a href="./"><i class="fa fa-youtube" aria-hidden="true"></i></a></li>
+                </ul>
+            </div><!--/.nav-collapse -->
+        </div>
+    </div>
+    <!-- Static menu -->
+    <nav class="navbar navbar-default navbar-static-top navbar-top">
         <div class="container">
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                <a class="navbar-brand" href="#"><img src="https://placehold.it/150x50"></a>
             </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="active text-center"><a href="#"><span class="fa fa-home fa-2x icon"></span>Trang Chủ</a></li>
+                    <li><a href="#about"><span class="fa fa-home fa-2x icon"></span> Giới Thiệu</a></li>
+                    <li><a href="#contact"><span class="fa fa-leaf fa-2x icon"></span> Dịch Vụ</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="fa fa-rss fa-2x icon"></span> Tin Tức</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Action</a></li>
+                            <li><a href="#">Another action</a></li>
+                            <li><a href="#">Something else here</a></li>
+                            <li><a href="#">Separated link</a></li>
+                            <li><a href="#">One more separated link</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#about"><span class="fa fa-shopping-bag fa-2x icon"></span> Sản Phẩm</a></li>
+                    <li><a href="#contact"><span class="fa fa-percent fa-2x icon"></span> Khuyến Mãi</a></li>
+                    <li><a href="#about"><span class="fa fa-info-circle fa-2x icon"></span> Liên Hệ</a></li>
                 </ul>
-                @Html.Partial("_LoginPartial")
+            </div><!--/.nav-collapse -->
+        </div>
+    </nav>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="panel panel-default panel-categories">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#subjects" aria-expanded="false">
+                                <i class="fa fa-bars"></i> DANH MỤC
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="subjects" class="panel-collapse collapse in" aria-expanded="false">
+                        <div class="panel-body">
+                            <ul class="list-item">
+                                <li class="item">
+                                    <a href="#"><i class="fa fa-angle-left"></i> Item 1</a>
+                                </li>
+                                <li class="item">
+                                    <a href="#"><i class="fa fa-angle-left"></i> Item 2</a>
+                                </li>
+                                <li class="item">
+                                    <a href="#"><i class="fa fa-angle-left"></i> Item 3</a>
+                                </li>
+                                <li class="item">
+                                    <a href="#"><i class="fa fa-angle-left"></i> Item 4</a>
+                                </li>
+                                <li class="item">
+                                    <a href="#"><i class="fa fa-angle-left"></i> Item 5</a>
+                                </li>
+                                <li class="item">
+                                    <a href="#"><i class="fa fa-angle-left"></i> Item 6</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="pr text-center">
+                    <img src="https://placehold.it/300x400" class="image-responsive">
+                </div>
+                <div class="panel panel-default panel-categories panel-box panel-new-product">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a class="#" data-toggle="collapse" data-parent="#accordion" href="#" aria-expanded="false">
+                                <i class="fa fa-bars"></i> SẢN PHẨM MỚI NHẤT
+                            </a>
+                        </h4>
+                    </div>
+                    <div class="panel-collapse collapse in" aria-expanded="false">
+                        <div class="panel-body">
+                            <ul class="list-item">
+                                <li class="item">
+                                    <a href="#">
+                                        <div class="col-md-5 image-intro text-center col-xs-5">
+                                            <img src="https://placehold.it/150x100" class="image-responsive">
+                                        </div>
+                                        <div class="col-md-7 col-xs-7">
+                                            <h3>Máy lọc nước DLink DK4 New</h3>
+                                            <p>Máy lọc nước</p>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </a>
+                                </li>
+                                <li class="item">
+                                    <a href="#">
+                                        <div class="col-md-5 image-intro text-center col-xs-5">
+                                            <img src="https://placehold.it/150x100" class="image-responsive">
+                                        </div>
+                                        <div class="col-md-7 col-xs-7">
+                                            <h3>Máy lọc nước DLink DK4 New</h3>
+                                            <p>Máy lọc nước</p>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </a>
+                                </li>
+                                <li class="item">
+                                    <a href="#">
+                                        <div class="col-md-5 image-intro text-center col-xs-5">
+                                            <img src="https://placehold.it/150x100" class="image-responsive">
+                                        </div>
+                                        <div class="col-md-7 col-xs-7">
+                                            <h3>Máy lọc nước DLink DK4 New</h3>
+                                            <p>Máy lọc nước</p>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="panel panel-default panel-categories panel-box panel-support">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a class="#" data-toggle="collapse" data-parent="#accordion" href="#" aria-expanded="false">
+                                <i class="fa fa-skype"></i> HỖ TRỢ TRỰC TUYẾN
+                            </a>
+                        </h4>
+                    </div>
+                    <div class="panel-collapse collapse in" aria-expanded="false">
+                        <div class="panel-body">
+                            <ul class="list-item">
+                                <li class="item">
+                                    <script type="text/javascript" src="https://secure.skypeassets.com/i/scom/js/skype-uri.js"></script>
+                                    <div id="SkypeButton_Call_nhuuhien_1">
+                                        <script type="text/javascript">
+                        Skype.ui({
+                          "name": "chat",
+                          "element": "SkypeButton_Call_nhuuhien_1",
+                          "participants": ["nhuuhien"],
+                          "imageSize": 32
+                        });
+                                        </script>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+            <div class="col-md-9">
+                @RenderBody()
+
+            </div>
+            <div class="clearfix"></div>
+        </div>
+
+    </div> <!-- /container -->
+    <div class="footer">
+        <div class="top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4">
+                        <h4 class="title">
+                            <a class="#" data-toggle="collapse" data-parent="#accordion" href="#" aria-expanded="false">
+                                ANH PHAT
+                            </a>
+                        </h4>
+                        <div class="content">
+                            At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excsint occaecati non provident, similique sunt in...
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <h4 class="title">
+                            <a class="#" data-toggle="collapse" data-parent="#accordion" href="#" aria-expanded="false">
+                                DANH MỤC
+                            </a>
+                        </h4>
+                        <div class="content">
+                            <ul class="categories">
+                                <div class="row">
+                                    <li class="col-md-6"><a href="#"><i class="fa fa-star"></i> Item 1</a></li>
+                                    <li class="col-md-6"><a href="#"><i class="fa fa-star"></i> Item 2</a></li>
+                                </div>
+                                <div class="row">
+                                    <li class="col-md-6"><a href="#"><i class="fa fa-star"></i> Item 1</a></li>
+                                    <li class="col-md-6"><a href="#"><i class="fa fa-star"></i> Item 2</a></li>
+                                </div>
+                                <div class="row">
+                                    <li class="col-md-6"><a href="#"><i class="fa fa-star"></i> Item 1</a></li>
+                                    <li class="col-md-6"><a href="#"><i class="fa fa-star"></i> Item 2</a></li>
+                                </div>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <h4 class="title">
+                            <a class="#" data-toggle="collapse" data-parent="#accordion" href="#" aria-expanded="false">
+                                KẾT NỐI CHÚNG TÔI
+                            </a>
+                        </h4>
+                        <div class="content">
+                            <div id="fb-root"></div>
+                            <script>(function(d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) return;
+                js = d.createElement(s); js.id = id;
+                js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.6&appId=522533804587634";
+                fjs.parentNode.insertBefore(js, fjs);
+              }(document, 'script', 'facebook-jssdk'));</script>
+                            <!-- Your like button code -->
+                            <div class="fb-like" data-href="https://www.facebook.com/khoailangmatdalat/" data-width="300" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="bottom">
+            <div class="container text-center">
+                <h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod</h3>
+                <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
             </div>
         </div>
     </div>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
-    </div>
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
+    @Scripts.Render("~/bundles/modernizr")
+    <script type="application/javascript">
+        $(document).ready(function(){
+          $('.bxslider').bxSlider({
+            controls: false
+          });
+          $('.partner').bxSlider({
+            minSlides: 5,
+            maxSlides: 4,
+            slideWidth: 360,
+            slideMargin: 10,
+            pager: false
+          });
+        });
+    </script>
 </body>
 </html>
