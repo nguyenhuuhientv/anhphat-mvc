@@ -1,3 +1,5 @@
 .vs
 AnhPhatMVC/obj/Debug
+AnhPhatMVC/bin
+AnhPhatMVC/App_Data
 *.config
