@@ -4,4 +4,5 @@ AnhPhatMVC/bin
 AnhPhatMVC/App_Data
 AnhPhatMVC/AnhPhatMVC.csproj
 AnhPhatMVC/AnhPhatMVC.csproj.user
+AnhPhatMVC/Context
 *.config
