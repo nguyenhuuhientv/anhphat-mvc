@@ -36,7 +36,7 @@ namespace AnhPhatMVC.Context
     #endregion
 		
 		public AnhPhatDbContextDataContext() : 
-				base(global::System.Configuration.ConfigurationManager.ConnectionStrings["AnhPhatConnectionString"].ConnectionString, mappingSource)
+				base(global::System.Configuration.ConfigurationManager.ConnectionStrings["AnhPhatConnectionString1"].ConnectionString, mappingSource)
 		{
 			OnCreated();
 		}
@@ -71,6 +71,13 @@ namespace AnhPhatMVC.Context
 			{
 				return this.GetTable<user>();
 			}
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_DangNhap")]
+		public ISingleResult<sp_DangNhapResult> sp_DangNhap([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(250)")] string id, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(250)")] string pass)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), id, pass);
+			return ((ISingleResult<sp_DangNhapResult>)(result.ReturnValue));
 		}
 	}
 	
@@ -300,6 +307,158 @@ namespace AnhPhatMVC.Context
 			if ((this.PropertyChanged != null))
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	public partial class sp_DangNhapResult
+	{
+		
+		private long _id;
+		
+		private string _username;
+		
+		private string _password;
+		
+		private string _email;
+		
+		private System.Nullable<System.DateTime> _birthday;
+		
+		private short _role;
+		
+		private System.DateTime _created_at;
+		
+		private System.DateTime _updated_at;
+		
+		public sp_DangNhapResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", DbType="BigInt NOT NULL")]
+		public long id
+		{
+			get
+			{
+				return this._id;
+			}
+			set
+			{
+				if ((this._id != value))
+				{
+					this._id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_username", DbType="NVarChar(50)")]
+		public string username
+		{
+			get
+			{
+				return this._username;
+			}
+			set
+			{
+				if ((this._username != value))
+				{
+					this._username = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_password", DbType="VarChar(50)")]
+		public string password
+		{
+			get
+			{
+				return this._password;
+			}
+			set
+			{
+				if ((this._password != value))
+				{
+					this._password = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_email", DbType="VarChar(50)")]
+		public string email
+		{
+			get
+			{
+				return this._email;
+			}
+			set
+			{
+				if ((this._email != value))
+				{
+					this._email = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_birthday", DbType="Date")]
+		public System.Nullable<System.DateTime> birthday
+		{
+			get
+			{
+				return this._birthday;
+			}
+			set
+			{
+				if ((this._birthday != value))
+				{
+					this._birthday = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_role", DbType="SmallInt NOT NULL")]
+		public short role
+		{
+			get
+			{
+				return this._role;
+			}
+			set
+			{
+				if ((this._role != value))
+				{
+					this._role = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_created_at", DbType="DateTime NOT NULL")]
+		public System.DateTime created_at
+		{
+			get
+			{
+				return this._created_at;
+			}
+			set
+			{
+				if ((this._created_at != value))
+				{
+					this._created_at = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_updated_at", DbType="DateTime NOT NULL")]
+		public System.DateTime updated_at
+		{
+			get
+			{
+				return this._updated_at;
+			}
+			set
+			{
+				if ((this._updated_at != value))
+				{
+					this._updated_at = value;
+				}
 			}
 		}
 	}
