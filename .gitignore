@@ -1,2 +1,3 @@
 .vs
-AnhPhatMVC/obj/Debug/*
+AnhPhatMVC/obj/Debug
+*.config
