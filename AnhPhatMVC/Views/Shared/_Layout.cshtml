@@ -23,6 +23,14 @@
                     <li class="col-xs-12 col-md-6"><a href="#about"><i class="fa fa-phone" aria-hidden="true"></i> 0988 234 726 </a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right col-md-6 pull-right col-xs-12">
+                    <li class="col-md-1 col-xs-3 text-center pull-right">
+                        <a href="@Url.Action("Change", "Language", new { LanguageAbbrevation = "en" }, null)">
+                        <img src='@Url.Content("~/Content/images/en.png")' width="25" /></a></li>
+                    <li class="col-md-1 col-xs-3 text-center pull-right">
+                        <a href="@Url.Action("Change", "Language", new { LanguageAbbrevation = "vi" }, null)">
+                        <img src='@Url.Content("~/Content/images/vi.png")' width="25" />
+                        </a>
+                    </li>
                     <li class="col-md-1 col-xs-3 text-center pull-right"><a href="../navbar/"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
                     <li class="col-md-1 col-xs-3 text-center pull-right"><a href="./"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
                     <li class="col-md-1 col-xs-3 text-center pull-right"><a href="./"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
@@ -45,11 +53,11 @@
             </div>
             <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav navbar-right">
-                    <li class="active text-center"><a href="#"><span class="fa fa-home fa-2x icon"></span>Trang Chủ</a></li>
-                    <li><a href="#about"><span class="fa fa-home fa-2x icon"></span> Giới Thiệu</a></li>
-                    <li><a href="#contact"><span class="fa fa-leaf fa-2x icon"></span> Dịch Vụ</a></li>
+                    <li class="active text-center"><a href="#"><span class="fa fa-home fa-2x icon"></span>@(AnhPhatMVC.Resources.Main.TRANGCHU)</a></li>
+                    <li><a href="#about"><span class="fa fa-home fa-2x icon"></span>@(AnhPhatMVC.Resources.Main.GIOITHIEU)</a></li>
+                    <li><a href="#contact"><span class="fa fa-leaf fa-2x icon"></span>@(AnhPhatMVC.Resources.Main.DICHVU)</a></li>
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="fa fa-rss fa-2x icon"></span> Tin Tức</a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="fa fa-rss fa-2x icon"></span>@(AnhPhatMVC.Resources.Main.TINTUC)</a>
                         <ul class="dropdown-menu">
                             <li><a href="#">Action</a></li>
                             <li><a href="#">Another action</a></li>
@@ -58,9 +66,9 @@
                             <li><a href="#">One more separated link</a></li>
                         </ul>
                     </li>
-                    <li><a href="#about"><span class="fa fa-shopping-bag fa-2x icon"></span> Sản Phẩm</a></li>
-                    <li><a href="#contact"><span class="fa fa-percent fa-2x icon"></span> Khuyến Mãi</a></li>
-                    <li><a href="#about"><span class="fa fa-info-circle fa-2x icon"></span> Liên Hệ</a></li>
+                    <li><a href="#about"><span class="fa fa-shopping-bag fa-2x icon"></span>@(AnhPhatMVC.Resources.Main.SANPHAM)</a></li>
+                    <li><a href="#contact"><span class="fa fa-percent fa-2x icon"></span>@(AnhPhatMVC.Resources.Main.KHUYENMAI)</a></li>
+                    <li><a href="#about"><span class="fa fa-info-circle fa-2x icon"></span>@(AnhPhatMVC.Resources.Main.LIENHE)</a></li>
                 </ul>
             </div><!--/.nav-collapse -->
         </div>
@@ -72,7 +80,7 @@
                     <div class="panel-heading">
                         <h4 class="panel-title">
                             <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#subjects" aria-expanded="false">
-                                <i class="fa fa-bars"></i> DANH MỤC
+                                <i class="fa fa-bars"></i> @(AnhPhatMVC.Resources.Main.DANHMUC)
                             </a>
                         </h4>
                     </div>
@@ -109,7 +117,7 @@
                     <div class="panel-heading">
                         <h4 class="panel-title">
                             <a class="#" data-toggle="collapse" data-parent="#accordion" href="#" aria-expanded="false">
-                                <i class="fa fa-bars"></i> SẢN PHẨM MỚI NHẤT
+                                <i class="fa fa-bars"></i> @(AnhPhatMVC.Resources.Main.SANPHAMMOINHAT)
                             </a>
                         </h4>
                     </div>
@@ -161,7 +169,7 @@
                     <div class="panel-heading">
                         <h4 class="panel-title">
                             <a class="#" data-toggle="collapse" data-parent="#accordion" href="#" aria-expanded="false">
-                                <i class="fa fa-skype"></i> HỖ TRỢ TRỰC TUYẾN
+                                <i class="fa fa-skype"></i> @(AnhPhatMVC.Resources.Main.HOTROTRUCTUYEN)
                             </a>
                         </h4>
                     </div>
@@ -212,30 +220,24 @@
                     <div class="col-md-4">
                         <h4 class="title">
                             <a class="#" data-toggle="collapse" data-parent="#accordion" href="#" aria-expanded="false">
-                                DANH MỤC
+                                @(AnhPhatMVC.Resources.Main.DANHMUC)
                             </a>
                         </h4>
                         <div class="content">
                             <ul class="categories">
-                                <div class="row">
                                     <li class="col-md-6"><a href="#"><i class="fa fa-star"></i> Item 1</a></li>
                                     <li class="col-md-6"><a href="#"><i class="fa fa-star"></i> Item 2</a></li>
-                                </div>
-                                <div class="row">
                                     <li class="col-md-6"><a href="#"><i class="fa fa-star"></i> Item 1</a></li>
                                     <li class="col-md-6"><a href="#"><i class="fa fa-star"></i> Item 2</a></li>
-                                </div>
-                                <div class="row">
                                     <li class="col-md-6"><a href="#"><i class="fa fa-star"></i> Item 1</a></li>
                                     <li class="col-md-6"><a href="#"><i class="fa fa-star"></i> Item 2</a></li>
-                                </div>
                             </ul>
                         </div>
                     </div>
                     <div class="col-md-4">
                         <h4 class="title">
                             <a class="#" data-toggle="collapse" data-parent="#accordion" href="#" aria-expanded="false">
-                                KẾT NỐI CHÚNG TÔI
+                                @(AnhPhatMVC.Resources.Main.KETNOIVOICHUNGTOI)
                             </a>
                         </h4>
                         <div class="content">
