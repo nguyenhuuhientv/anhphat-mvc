@@ -117,11 +117,41 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="DANHMUC" xml:space="preserve">
+    <value>Categories</value>
+  </data>
+  <data name="DICHVU" xml:space="preserve">
+    <value>Services</value>
+  </data>
   <data name="GIOITHIEU" xml:space="preserve">
     <value>About</value>
   </data>
+  <data name="HOTROTRUCTUYEN" xml:space="preserve">
+    <value>Support Online</value>
+  </data>
+  <data name="KETNOIVOICHUNGTOI" xml:space="preserve">
+    <value>Connect with Us</value>
+  </data>
+  <data name="KHUYENMAI" xml:space="preserve">
+    <value>Promotion</value>
+  </data>
   <data name="LIENHE" xml:space="preserve">
     <value>Contact</value>
+  </data>
+  <data name="SANPHAM" xml:space="preserve">
+    <value>Products</value>
+  </data>
+  <data name="SANPHAMMOINHAT" xml:space="preserve">
+    <value>New Product</value>
+  </data>
+  <data name="SANPHAMNOIBAT" xml:space="preserve">
+    <value>Hot Product</value>
+  </data>
+  <data name="THUONGHIEU" xml:space="preserve">
+    <value>Trademark</value>
+  </data>
+  <data name="TINTUC" xml:space="preserve">
+    <value>News</value>
   </data>
   <data name="TRANGCHU" xml:space="preserve">
     <value>Home</value>

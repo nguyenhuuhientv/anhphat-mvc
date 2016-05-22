@@ -117,11 +117,41 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="DANHMUC" xml:space="preserve">
+    <value>Danh Mục</value>
+  </data>
+  <data name="DICHVU" xml:space="preserve">
+    <value>Dịch Vụ</value>
+  </data>
   <data name="GIOITHIEU" xml:space="preserve">
     <value>Giới Thiệu</value>
   </data>
+  <data name="HOTROTRUCTUYEN" xml:space="preserve">
+    <value>Hỗ Trợ Trực Tuyến</value>
+  </data>
+  <data name="KETNOIVOICHUNGTOI" xml:space="preserve">
+    <value>Kết Nối Với Chúng Tôi</value>
+  </data>
+  <data name="KHUYENMAI" xml:space="preserve">
+    <value>Khuyến Mãi</value>
+  </data>
   <data name="LIENHE" xml:space="preserve">
     <value>Liên Hệ</value>
+  </data>
+  <data name="SANPHAM" xml:space="preserve">
+    <value>Sản Phẩm</value>
+  </data>
+  <data name="SANPHAMMOINHAT" xml:space="preserve">
+    <value>Sản Phẩm Mới Nhất</value>
+  </data>
+  <data name="SANPHAMNOIBAT" xml:space="preserve">
+    <value>Sản Phẩm Nổi Bật</value>
+  </data>
+  <data name="THUONGHIEU" xml:space="preserve">
+    <value>Thương Hiệu</value>
+  </data>
+  <data name="TINTUC" xml:space="preserve">
+    <value>Tin Tức</value>
   </data>
   <data name="TRANGCHU" xml:space="preserve">
     <value>Trang Chủ</value>
