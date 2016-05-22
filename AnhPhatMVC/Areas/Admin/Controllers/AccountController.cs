@@ -58,5 +58,6 @@ namespace AnhPhatMVC.Areas.Admin.Controllers
             System.Web.HttpContext.Current.Session.Remove("Quyen");
             return RedirectToAction("Login", "Account");
         }
+       
     }
 }
