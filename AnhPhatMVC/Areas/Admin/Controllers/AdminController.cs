@@ -57,7 +57,7 @@ namespace AnhPhatMVC.Areas.Admin.Controllers
                 temp_TK = System.Web.HttpContext.Current.Session["TaiKhoan"].ToString();
             }
             catch { }
-            if (temp != null && !temp.Equals(""))
+            if (temp_TK != null && !temp_TK.Equals(""))
             {
                 return View();
             }
@@ -105,7 +105,7 @@ namespace AnhPhatMVC.Areas.Admin.Controllers
                 temp_TK = System.Web.HttpContext.Current.Session["TaiKhoan"].ToString();
             }
             catch { }
-            if (temp != null && !temp.Equals(""))
+            if (temp_TK != null && !temp_TK.Equals(""))
             {
                 user us = data.users.FirstOrDefault(x => x.id == id);
                 return View(us);
@@ -152,7 +152,7 @@ namespace AnhPhatMVC.Areas.Admin.Controllers
                 temp_TK = System.Web.HttpContext.Current.Session["TaiKhoan"].ToString();
             }
             catch { }
-            if (temp != null && !temp.Equals(""))
+            if (temp_TK != null && !temp_TK.Equals(""))
             {
                 data.users.DeleteOnSubmit(data.users.FirstOrDefault(x => x.id == id));
                 data.SubmitChanges();
@@ -180,7 +180,7 @@ namespace AnhPhatMVC.Areas.Admin.Controllers
                 temp_TK = System.Web.HttpContext.Current.Session["TaiKhoan"].ToString();
             }
             catch { }
-            if (temp != null && !temp.Equals(""))
+            if (temp_TK != null && !temp_TK.Equals(""))
             {
                 user us = data.users.FirstOrDefault(x => x.id == id);
                 return View(us);

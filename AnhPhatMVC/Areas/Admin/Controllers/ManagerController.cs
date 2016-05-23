@@ -28,16 +28,23 @@ namespace AnhPhatMVC.Areas.Admin.Controllers
         }
         public ActionResult KiemTraDaDangNhap(ActionResult view)
         {
-            String temp = "";
             try
             {
-                temp = System.Web.HttpContext.Current.Session["TaiKhoan"].ToString();
+                String temp = "";
+                try
+                {
+                    temp = System.Web.HttpContext.Current.Session["TaiKhoan"].ToString();
+                }
+                catch { }
+                if (temp != null && !temp.Equals(""))
+                    return view;
+                else
+                    return RedirectToAction("Login", "Account");
             }
-            catch { }
-            if (temp != null && !temp.Equals(""))
+            catch
+            {
                 return view;
-            else
-                return RedirectToAction("Login", "Account"); 
+            }
         }
     }
 }

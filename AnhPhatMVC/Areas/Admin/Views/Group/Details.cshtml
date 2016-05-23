@@ -1,0 +1,43 @@
+﻿@model AnhPhatMVC.Context.group_product
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutPageAdmin.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>group_product</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.caption_vn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.caption_vn)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.caption_en)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.caption_en)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.orderby)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.orderby)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Group")
+</p>

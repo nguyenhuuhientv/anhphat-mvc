@@ -1,0 +1,83 @@
+﻿@model AnhPhatMVC.Context.product
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutPageAdmin.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>product</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.caption_vn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.caption_vn)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.caption_en)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.caption_en)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.describe_vn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.describe_vn)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.describe_en)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.describe_en)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.image)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.image)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.detail_vn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.detail_vn)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.detail_en)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.detail_en)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.grroup_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.grroup_id)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Product")
+</p>

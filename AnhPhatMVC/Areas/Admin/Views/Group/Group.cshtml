@@ -1,0 +1,46 @@
+﻿@model IEnumerable<AnhPhatMVC.Context.group_product>
+
+@{
+    ViewBag.Title = "Group";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutPageAdmin.cshtml";
+}
+
+<h2>Group</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.caption_vn)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.caption_en)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.orderby)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.caption_vn)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.caption_en)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.orderby)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+        </td>
+    </tr>
+}
+
+</table>
