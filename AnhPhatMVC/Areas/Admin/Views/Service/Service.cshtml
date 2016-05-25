@@ -1,11 +1,11 @@
-﻿@model IEnumerable<AnhPhatMVC.Context.product>
+﻿@model IEnumerable<AnhPhatMVC.Context.service>
 
 @{
-    ViewBag.Title = "Poduct";
+    ViewBag.Title = "Service";
     Layout = "~/Areas/Admin/Views/Shared/_LayoutPageAdmin.cshtml";
 }
 
-<h2>Poduct</h2>
+<h2>Service</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -25,17 +25,14 @@
             @Html.DisplayNameFor(model => model.describe_en)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.image)
-        </th>
-        <th>
             @Html.DisplayNameFor(model => model.detail_vn)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.detail_en)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.group_id)
-        </th>
+            @Html.DisplayNameFor(model => model.image)
+        </th>        
         <th></th>
     </tr>
 
@@ -54,17 +51,14 @@
             @Html.DisplayFor(modelItem => item.describe_en)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.image)
-        </td>
-        <td>
             @Html.DisplayFor(modelItem => item.detail_vn)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.detail_en)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.group_id)
-        </td>
+            @Html.DisplayFor(modelItem => item.image)
+        </td>      
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
             @Html.ActionLink("Details", "Details", new { id=item.id }) |

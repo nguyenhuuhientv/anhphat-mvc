@@ -7,17 +7,17 @@ using System.Web.Mvc;
 
 namespace AnhPhatMVC.Areas.Admin.Controllers
 {
-    public class ProductController : Controller
+    public class ServiceController : Controller
     {
         AnhPhatDbContextDataContext data = new AnhPhatDbContextDataContext();
-        // GET: Admin/Product
+        // GET: Admin/Service
         public ActionResult Index()
         {
             return View();
         }
-        public ActionResult Product()
+        public ActionResult Service()
         {
-            List<product> _list = data.products.ToList();
+            List<service> _list = data.services.ToList();
             return new ManagerController().KiemTraDaDangNhap(View(_list));
         }
         public ActionResult Create()
@@ -25,13 +25,13 @@ namespace AnhPhatMVC.Areas.Admin.Controllers
             return new ManagerController().KiemTraDaDangNhap(View());
         }
         [HttpPost]
-        public ActionResult Create(product item)
+        public ActionResult Create(service item)
         {
             try
-            {
-                data.products.InsertOnSubmit(item);
+            {                  
+                data.services.InsertOnSubmit(item);
                 data.SubmitChanges();
-                return RedirectToAction("Product", "Product");
+                return RedirectToAction("Service", "Service");
             }
             catch
             {
@@ -41,25 +41,25 @@ namespace AnhPhatMVC.Areas.Admin.Controllers
         [HttpGet]
         public ActionResult Edit(int id)
         {
-            product item = data.products.FirstOrDefault(x => x.id == id);
+            service item = data.services.FirstOrDefault(x => x.id == id);
             return new ManagerController().KiemTraDaDangNhap(View(item));
         }
 
         [HttpPost]
-        public ActionResult Edit(product item)
+        public ActionResult Edit(service item)
         {
             try
             {
-                product _product = data.products.FirstOrDefault(x => x.id == item.id);               
-                _product.caption_vn = item.caption_vn;
-                _product.caption_en = item.caption_en;
-                _product.describe_vn = item.describe_vn;
-                _product.describe_en = item.describe_en;
-                _product.detail_vn = item.detail_vn;
-                _product.detail_en = item.detail_en;
-                _product.group_id = item.group_id;
+                service _newt = data.services.FirstOrDefault(x => x.id == item.id);
+                _newt.caption_vn = item.caption_vn;
+                _newt.caption_en = item.caption_en;
+                _newt.detail_vn = item.detail_vn;
+                _newt.detail_en = item.detail_en;              
+                _newt.describe_vn = item.describe_vn;
+                _newt.describe_en = item.describe_en;
+                _newt.image = item.image;
                 data.SubmitChanges();
-                return RedirectToAction("Product", "Product");
+                return RedirectToAction("Service", "Service");
             }
             catch
             {
@@ -78,9 +78,9 @@ namespace AnhPhatMVC.Areas.Admin.Controllers
             catch { }
             if (temp != null && !temp.Equals(""))
             {
-                data.products.DeleteOnSubmit(data.products.FirstOrDefault(x => x.id == id));
+                data.services.DeleteOnSubmit(data.services.FirstOrDefault(x => x.id == id));
                 data.SubmitChanges();
-                return RedirectToAction("Product", "Product");
+                return RedirectToAction("Service", "Service");
             }
             else
                 return RedirectToAction("Login", "Account");
@@ -90,7 +90,7 @@ namespace AnhPhatMVC.Areas.Admin.Controllers
         [HttpGet]
         public ActionResult Details(int id)
         {
-            product us = data.products.FirstOrDefault(x => x.id == id);
+            service us = data.services.FirstOrDefault(x => x.id == id);
             return new ManagerController().KiemTraDaDangNhap(View(us));
         }
     }

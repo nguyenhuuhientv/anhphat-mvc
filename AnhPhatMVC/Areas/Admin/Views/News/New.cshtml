@@ -1,11 +1,11 @@
-﻿@model IEnumerable<AnhPhatMVC.Context.product>
+﻿@model IEnumerable<AnhPhatMVC.Context.new_new>
 
 @{
-    ViewBag.Title = "Poduct";
+    ViewBag.Title = "New";
     Layout = "~/Areas/Admin/Views/Shared/_LayoutPageAdmin.cshtml";
 }
 
-<h2>Poduct</h2>
+<h2>New</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -13,10 +13,19 @@
 <table class="table">
     <tr>
         <th>
+            @Html.DisplayNameFor(model => model.group_new)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.caption_vn)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.caption_en)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.detail_vn)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.detail_en)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.describe_vn)
@@ -28,13 +37,7 @@
             @Html.DisplayNameFor(model => model.image)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.detail_vn)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.detail_en)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.group_id)
+            @Html.DisplayNameFor(model => model.created_at)
         </th>
         <th></th>
     </tr>
@@ -42,10 +45,19 @@
 @foreach (var item in Model) {
     <tr>
         <td>
+            @Html.DisplayFor(modelItem => item.group_new)
+        </td>
+        <td>
             @Html.DisplayFor(modelItem => item.caption_vn)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.caption_en)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.detail_vn)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.detail_en)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.describe_vn)
@@ -57,13 +69,7 @@
             @Html.DisplayFor(modelItem => item.image)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.detail_vn)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.detail_en)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.group_id)
+            @Html.DisplayFor(modelItem => item.created_at)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.id }) |

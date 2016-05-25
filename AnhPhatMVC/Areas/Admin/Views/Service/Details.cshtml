@@ -1,4 +1,4 @@
-﻿@model AnhPhatMVC.Context.product
+﻿@model AnhPhatMVC.Context.service
 
 @{
     ViewBag.Title = "Details";
@@ -8,7 +8,7 @@
 <h2>Details</h2>
 
 <div>
-    <h4>product</h4>
+    <h4>service</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -44,14 +44,6 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.image)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.image)
-        </dd>
-
-        <dt>
             @Html.DisplayNameFor(model => model.detail_vn)
         </dt>
 
@@ -68,16 +60,16 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.group_id)
+            @Html.DisplayNameFor(model => model.image)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.group_id)
+            @Html.DisplayFor(model => model.image)
         </dd>
-
+        
     </dl>
 </div>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
-    @Html.ActionLink("Back to List", "Product")
+    @Html.ActionLink("Back to List", "Service")
 </p>
