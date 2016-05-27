@@ -7,32 +7,32 @@ using System.Web.Mvc;
 
 namespace AnhPhatMVC.Areas.Admin.Controllers
 {
-    public class GroupController : Controller
+    public class ConfigController : Controller
     {
         AnhPhatDbContextDataContext data = new AnhPhatDbContextDataContext();
-        // GET: Admin/Group
+        // GET: Admin/Config
         public ActionResult Index()
-        {
+        {           
             return View();
         }
-        public ActionResult Group()
+        public ActionResult Config()
         {
-            System.Web.HttpContext.Current.Session["DanhMuc"] = "Nhóm Sản phẩm";
-            List<group_product> list_group = data.group_products.ToList();
+            System.Web.HttpContext.Current.Session["DanhMuc"] = "Config";
+            List<config> list_group = data.configs.ToList();
             return new ManagerController().KiemTraDaDangNhap(View(list_group));
         }
         public ActionResult Create()
         {
-           return  new ManagerController().KiemTraDaDangNhap(View());
+            return new ManagerController().KiemTraDaDangNhap(View());
         }
         [HttpPost]
-        public ActionResult Create(group_product item)
+        public ActionResult Create(config item)
         {
             try
             {
-                data.group_products.InsertOnSubmit(item);
+                data.configs.InsertOnSubmit(item);
                 data.SubmitChanges();
-                return RedirectToAction("Group", "Group");
+                return RedirectToAction("Config", "Config");
             }
             catch
             {
@@ -42,20 +42,19 @@ namespace AnhPhatMVC.Areas.Admin.Controllers
         [HttpGet]
         public ActionResult Edit(int id)
         {
-            group_product us = data.group_products.FirstOrDefault(x => x.id == id);
+            config us = data.configs.FirstOrDefault(x => x.id == id);
             return new ManagerController().KiemTraDaDangNhap(View(us));
         }
 
         [HttpPost]
-        public ActionResult Edit(group_product item)
+        public ActionResult Edit(config item)
         {
             try
             {
-                group_product _group = data.group_products.FirstOrDefault(x => x.id == item.id);
-                _group.caption_vn = item.caption_vn;
-                _group.caption_en = item.caption_en;               
+                config _config = data.configs.FirstOrDefault(x => x.id == item.id);
+                _config.value = item.value;                
                 data.SubmitChanges();
-                return RedirectToAction("Group", "Group");
+                return RedirectToAction("Config", "Config");
             }
             catch
             {
@@ -74,9 +73,9 @@ namespace AnhPhatMVC.Areas.Admin.Controllers
             catch { }
             if (temp != null && !temp.Equals(""))
             {
-                data.group_products.DeleteOnSubmit(data.group_products.FirstOrDefault(x => x.id == id));
+                data.configs.DeleteOnSubmit(data.configs.FirstOrDefault(x => x.id == id));
                 data.SubmitChanges();
-                return RedirectToAction("Group", "Group");
+                return RedirectToAction("Config", "Config");
             }
             else
                 return RedirectToAction("Login", "Account");
@@ -85,9 +84,10 @@ namespace AnhPhatMVC.Areas.Admin.Controllers
 
         [HttpGet]
         public ActionResult Details(int id)
-        {   group_product us = data.group_products.FirstOrDefault(x => x.id == id);                   
+        {
+            config us = data.configs.FirstOrDefault(x => x.id == id);
             return new ManagerController().KiemTraDaDangNhap(View(us));
         }
-           
+
     }
 }
