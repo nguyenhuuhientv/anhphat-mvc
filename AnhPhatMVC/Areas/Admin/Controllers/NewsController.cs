@@ -18,6 +18,7 @@ namespace AnhPhatMVC.Areas.Admin.Controllers
         }
         public ActionResult New()
         {
+            System.Web.HttpContext.Current.Session["DanhMuc"] = "Tin tức - Khuyến mãi";
             List<new_new> _list = data.new_news.ToList();
             return new ManagerController().KiemTraDaDangNhap(View(_list));
         }

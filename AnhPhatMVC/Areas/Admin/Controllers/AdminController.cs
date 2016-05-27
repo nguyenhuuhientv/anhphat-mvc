@@ -13,10 +13,12 @@ namespace AnhPhatMVC.Areas.Admin.Controllers
         AnhPhatDbContextDataContext data = new AnhPhatDbContextDataContext();
         public ActionResult Index()
         {
+            System.Web.HttpContext.Current.Session["DanhMuc"] = "Index";
             return new ManagerController().KiemTraDaDangNhap(View());
         }
         public ActionResult QuanLyTaiKhoan()
         {
+            System.Web.HttpContext.Current.Session["DanhMuc"] = "Quản lý tài khoản";
             String temp = "";
             try
             {

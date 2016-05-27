@@ -17,6 +17,7 @@ namespace AnhPhatMVC.Areas.Admin.Controllers
         }
         public ActionResult Service()
         {
+            System.Web.HttpContext.Current.Session["DanhMuc"] = "Dịch vụ";
             List<service> _list = data.services.ToList();
             return new ManagerController().KiemTraDaDangNhap(View(_list));
         }

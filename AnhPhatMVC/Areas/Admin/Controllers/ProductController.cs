@@ -17,6 +17,7 @@ namespace AnhPhatMVC.Areas.Admin.Controllers
         }
         public ActionResult Product()
         {
+            System.Web.HttpContext.Current.Session["DanhMuc"] = "Sản phẩm";
             List<product> _list = data.products.ToList();
             return new ManagerController().KiemTraDaDangNhap(View(_list));
         }
