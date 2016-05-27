@@ -10,37 +10,41 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.caption_vn)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.caption_en)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.orderby)
-        </th>
-        <th></th>
-    </tr>
+<table id="example1" class="table table-bordered table-striped dataTable" aria-describedby="example1_info">
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.caption_vn)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.caption_en)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.orderby)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.id })
-        </td>
-    </tr>
-}
-
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.caption_vn)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.caption_en)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.orderby)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody role="alert" aria-live="polite" aria-relevant="all">
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.caption_vn)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.caption_en)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.orderby)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.id })
+                </td>
+            </tr>
+        }
+    </tbody>
 </table>
