@@ -70,6 +70,7 @@ namespace AnhPhatMVC.Areas.Admin.Controllers
                 _newt.group_new = item.group_new;
                 _newt.describe_vn = item.describe_vn;
                 _newt.describe_en = item.describe_en;
+                _newt.created_at = item.created_at;
                 _newt.image = item.image;                
                 data.SubmitChanges();
                 return RedirectToAction("New", "News");
