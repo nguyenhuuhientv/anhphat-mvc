@@ -8,63 +8,66 @@
 <h2>Quản lý tài khoản</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Tạo mới", "Create")
 </p>
-<table class="table table-bordered table-hover dataTable">
-    <tr>
-        <th>
-           <p>Tài khoản</p>
-        </th>
-        <th>
-            <p>Mật khẩu</p>
-        </th>
-        <th>
-            <p>Email</p>
-        </th>
-        <th>
-            <p>Sinh nhật</p>
-        </th>
-        <th>
-            <p>Quyền</p>
-        </th>
-        <th>
-            <p>Ngày tạo</p>
-        </th>
-        <th>
-            <p>Cập nhật</p>
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.username)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.password)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.email)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.birthday)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.role)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.created_at)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.updated_at)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.id })
-        </td>
-    </tr>
-}
-
+<table id="example1" class="table table-bordered table-striped dataTable" aria-describedby="example1_info">
+    <thead>
+        <tr>
+            <th>
+               <a> Tài khoản </a>
+            </th>
+            <th>
+                <a>  Mật khẩu</a>
+            </th>
+            <th>
+               <a> Email</a>
+            </th>
+            <th>
+               <a> Sinh nhật</a>
+            </th>
+            <th>
+                <a>Quyền</a>
+            </th>
+            <th>
+               <a> Ngày tạo</a>
+            </th>
+            <th>
+                <a>Cập nhật</a>
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody role="alert" aria-live="polite" aria-relevant="all">
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.username)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.password)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.birthday)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.role)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.created_at)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.updated_at)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.id })
+                </td>
+            </tr>
+        }
+    </tbody>
 </table>

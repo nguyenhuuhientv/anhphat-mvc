@@ -8,31 +8,34 @@
 <h2>Config</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.key)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.value)
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.key)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.value)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.id }) 
-        </td>
-    </tr>
-}
-
+<table id="example1" class="table table-bordered table-striped dataTable" aria-describedby="example1_info">
+    <thead>
+        <tr>
+            <th>
+                <a>Khóa</a>
+            </th>
+            <th>
+                <a>Chi tiết</a>
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody role="alert" aria-live="polite" aria-relevant="all">
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.key)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.value)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.id })
+                </td>
+            </tr>
+        }
+    </tbody>
 </table>

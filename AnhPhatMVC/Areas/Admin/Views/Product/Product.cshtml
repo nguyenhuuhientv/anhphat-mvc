@@ -5,72 +5,74 @@
     Layout = "~/Areas/Admin/Views/Shared/_LayoutPageAdmin.cshtml";
 }
 
-<h2>Poduct</h2>
+<h2>Sản phẩm</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Tạo mới", "Create")
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.caption_vn)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.caption_en)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.describe_vn)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.describe_en)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.image)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.detail_vn)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.detail_en)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.group_id)
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.caption_vn)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.caption_en)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.describe_vn)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.describe_en)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.image)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.detail_vn)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.detail_en)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.group_id)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.id })
-        </td>
-    </tr>
-}
-
+<table id="example1" class="table table-bordered table-striped dataTable" aria-describedby="example1_info">
+    <thead>
+        <tr>
+            <th>
+               <a> Tên tiếng việt </a>
+            </th>
+            <th>
+                <a>Tên tiếng anh</a>
+            </th>
+            <th>
+               <a> Mô tả tiếng việt</a>
+            </th>
+            <th>
+                <a>Mô tả tiếng anh</a>
+            </th>
+            <th>
+                <a>Hình ảnh</a>
+            <th>
+                <a>Chi tiết tiếng việt</a>
+            </th>
+            <th>
+                <a>Chi tiết tiếng anh</a>
+            </th>
+            <th>
+                <a>Mã nhóm sản phẩm</a>
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody role="alert" aria-live="polite" aria-relevant="all">
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.caption_vn)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.caption_en)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.describe_vn)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.describe_en)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.image)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.detail_vn)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.detail_en)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.group_id)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.id })
+                </td>
+            </tr>
+        }
+    </tbody>
 </table>

@@ -5,14 +5,14 @@
     Layout = "~/Areas/Admin/Views/Shared/_LayoutPageAdmin.cshtml";
 }
 
-<h2>Details</h2>
+<h2>Chi tiết</h2>
 
 <div>
-    <h4>new_new</h4>
+  
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.group_new)
+           <a>Nhóm tin tức - Khuyến mãi</a>
         </dt>
 
         <dd>
@@ -20,7 +20,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.caption_vn)
+            <a>Tiêu đề tiếng việt</a>
         </dt>
 
         <dd>
@@ -28,31 +28,14 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.caption_en)
+            <a>Tiêu đề tiếng anh</a>
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.caption_en)
         </dd>
-
         <dt>
-            @Html.DisplayNameFor(model => model.detail_vn)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.detail_vn)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.detail_en)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.detail_en)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.describe_vn)
+            <a>Mô tả tiếng việt</a>
         </dt>
 
         <dd>
@@ -60,7 +43,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.describe_en)
+           <a>Mô tả tiếng anh</a>
         </dt>
 
         <dd>
@@ -68,7 +51,23 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.image)
+           <a>Chi tiết tiếng việt</a>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.detail_vn)
+        </dd>
+
+        <dt>
+            <a>Chi tiết tiếng anh</a>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.detail_en)
+        </dd>             
+
+        <dt>
+            <a>Ảnh</a>
         </dt>
 
         <dd>
@@ -76,7 +75,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.created_at)
+            <a>Ngày tạo</a>
         </dt>
 
         <dd>

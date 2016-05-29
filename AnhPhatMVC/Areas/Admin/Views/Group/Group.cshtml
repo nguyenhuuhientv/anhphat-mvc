@@ -5,23 +5,23 @@
     Layout = "~/Areas/Admin/Views/Shared/_LayoutPageAdmin.cshtml";
 }
 
-<h2>Group</h2>
+<h2>Nhóm sản phẩm</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Tạo mới", "Create")
 </p>
 <table id="example1" class="table table-bordered table-striped dataTable" aria-describedby="example1_info">
 
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.caption_vn)
+                <a>Tên nhóm tiếng việt</a>
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.caption_en)
+                <a>Tên nhóm tiếng anh</a>
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.orderby)
+                <a>Ưu tiên</a>
             </th>
             <th></th>
         </tr>
