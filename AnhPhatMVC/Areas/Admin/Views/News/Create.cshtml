@@ -16,7 +16,7 @@
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
-            <p class="control-label col-md-2"><a>Nhóm tin tức - Khuyến mãi</a></p>
+            <p class="control-label col-md-2"><a>Nhóm tin tức - Khuyến mãi (0/1)</a></p>
                 <div class="col-md-10">
                     @Html.EditorFor(model => model.group_new, new { htmlAttributes = new { @class = "form-control" } })
                     @Html.ValidationMessageFor(model => model.group_new, "", new { @class = "text-danger" })

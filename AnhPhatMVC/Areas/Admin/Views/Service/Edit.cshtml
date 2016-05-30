@@ -52,7 +52,7 @@
         <div class="form-group">
             <p class="control-label col-md-2"><a>Chi tiết tiếng việt</a></p>
             <div class="col-md-10">
-                @Html.EditorFor(model => model.detail_vn, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.TextAreaFor(model => model.detail_vn, new { @class = "form-control col-md-12", cols = 35, @rows = 3 })
                 @Html.ValidationMessageFor(model => model.detail_vn, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -60,7 +60,7 @@
         <div class="form-group">
             <p class="control-label col-md-2"><a>Chi tiết tiếng anh</a></p>
             <div class="col-md-10">
-                @Html.EditorFor(model => model.detail_en, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.TextAreaFor(model => model.detail_en, new { @class = "form-control col-md-12", cols = 35, @rows = 3 })
                 @Html.ValidationMessageFor(model => model.detail_en, "", new { @class = "text-danger" })
             </div>
         </div>
