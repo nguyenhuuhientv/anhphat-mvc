@@ -1,6 +1,8 @@
 ﻿using AnhPhatMVC.Context;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -26,13 +28,31 @@ namespace AnhPhatMVC.Areas.Admin.Controllers
             return new ManagerController().KiemTraDaDangNhap(View());
         }
         [HttpPost]
-        public ActionResult Create(slide item)
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(HttpPostedFileBase image)
         {
             try
             {
-                data.slides.InsertOnSubmit(item);
-                data.SubmitChanges();
-                return RedirectToAction("Slide", "Slide");
+                if (image != null)
+                {           
+
+                    //Save image to file
+                    var filename = Guid.NewGuid().ToString() + image.FileName;
+                    var filePathOriginal = Server.MapPath("/Content/images");
+              
+                    string savedFileName = Path.Combine(filePathOriginal, filename);
+                    image.SaveAs(savedFileName);
+                    slide _sli = new slide();
+                    _sli.image = "/Content/images/" + filename;
+                    data.slides.InsertOnSubmit(_sli);
+                    data.SubmitChanges();
+                    return RedirectToAction("Slide", "Slide");
+                }
+                else
+                {
+                    return View();
+                }
+               
             }
             catch
             {
@@ -47,14 +67,28 @@ namespace AnhPhatMVC.Areas.Admin.Controllers
         }
 
         [HttpPost]
-        public ActionResult Edit(slide item)
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(int? id, HttpPostedFileBase image)
         {
             try
             {
-                slide _slide = data.slides.FirstOrDefault(x => x.id == item.id);
-                _slide.image = item.image;
-                data.SubmitChanges();
-                return RedirectToAction("Slide", "Slide");
+                if (image != null)
+                {
+
+                    //Save image to file
+                    var filename = Guid.NewGuid().ToString()+image.FileName;
+                    var filePathOriginal = Server.MapPath("/Content/images");
+                    string savedFileName = Path.Combine(filePathOriginal, filename);
+                    image.SaveAs(savedFileName);
+                    slide _slide = data.slides.FirstOrDefault(x => x.id == id);
+                    _slide.image = "/Content/images/" + filename;
+                    data.SubmitChanges();
+                    return RedirectToAction("Slide", "Slide");
+                }else
+                {
+                    return View();
+                }           
+                
             }
             catch
             {
