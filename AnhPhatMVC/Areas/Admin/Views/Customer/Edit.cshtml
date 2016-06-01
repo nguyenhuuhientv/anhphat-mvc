@@ -7,7 +7,7 @@
 
 <h2>Chỉnh sửa</h2>
 
-@using (Html.BeginForm())
+@using (Html.BeginForm("Edit", "Customer", null, FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
     
@@ -32,7 +32,7 @@
                 <a>Ảnh</a>
             </p>
             <div class="col-md-10">
-                @Html.EditorFor(model => model.image, new { htmlAttributes = new { @class = "form-control" } })
+                <input type="file" id="slider" name="image" />
                 @Html.ValidationMessageFor(model => model.image, "", new { @class = "text-danger" })
             </div>
         </div>

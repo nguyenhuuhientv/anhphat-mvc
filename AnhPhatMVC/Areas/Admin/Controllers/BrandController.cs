@@ -1,6 +1,7 @@
 ﻿using AnhPhatMVC.Context;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -25,19 +26,39 @@ namespace AnhPhatMVC.Areas.Admin.Controllers
         {
             return new ManagerController().KiemTraDaDangNhap(View());
         }
+
         [HttpPost]
-        public ActionResult Create(brand item)
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(brand item, HttpPostedFileBase image)
         {
             try
             {
-                data.brands.InsertOnSubmit(item);
-                data.SubmitChanges();
-                return RedirectToAction("Brand", "Brand");
+                if (image != null)
+                {
+
+                    //Save image to file
+                    var filename = Guid.NewGuid().ToString() + image.FileName;
+                    var filePathOriginal = Server.MapPath("/Content/images");
+
+                    string savedFileName = Path.Combine(filePathOriginal, filename);
+                    image.SaveAs(savedFileName);
+                    brand _item = new brand();
+                    _item.image = "/Content/images/" + filename;
+                    _item.link_action = item.link_action;
+                    data.brands.InsertOnSubmit(_item);
+                    data.SubmitChanges();
+                    return RedirectToAction("Brand", "Brand");
+                }
+                else
+                {
+                    return View();
+                }
+
             }
             catch
             {
                 return View();
-            }
+            }            
         }
         [HttpGet]
         public ActionResult Edit(int id)
@@ -47,15 +68,30 @@ namespace AnhPhatMVC.Areas.Admin.Controllers
         }
 
         [HttpPost]
-        public ActionResult Edit(brand item)
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(brand item, HttpPostedFileBase image)
         {
             try
             {
-                brand _brande = data.brands.FirstOrDefault(x => x.id == item.id);
-                _brande.link_action = item.link_action;
-                _brande.image = item.image;
-                data.SubmitChanges();
-                return RedirectToAction("Brand", "Brand");
+                if (image != null)
+                {
+
+                    //Save image to file
+                    var filename = Guid.NewGuid().ToString() + image.FileName;
+                    var filePathOriginal = Server.MapPath("/Content/images");
+                    string savedFileName = Path.Combine(filePathOriginal, filename);
+                    image.SaveAs(savedFileName);
+                    brand _item = data.brands.FirstOrDefault(x => x.id == item.id);
+                    _item.image = "/Content/images/" + filename;
+                    _item.link_action = item.link_action;
+                    data.SubmitChanges();
+                    return RedirectToAction("Brand", "Brand");
+                }
+                else
+                {
+                    return View();
+                }
+
             }
             catch
             {

@@ -1,6 +1,7 @@
 ﻿using AnhPhatMVC.Context;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -26,18 +27,42 @@ namespace AnhPhatMVC.Areas.Admin.Controllers
             return new ManagerController().KiemTraDaDangNhap(View());
         }
         [HttpPost]
-        public ActionResult Create(service item)
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(service item, HttpPostedFileBase image)
         {
             try
-            {                  
-                data.services.InsertOnSubmit(item);
-                data.SubmitChanges();
-                return RedirectToAction("Service", "Service");
+            {
+                if (image != null)
+                {
+
+                    //Save image to file
+                    var filename = Guid.NewGuid().ToString() + image.FileName;
+                    var filePathOriginal = Server.MapPath("/Content/images");
+
+                    string savedFileName = Path.Combine(filePathOriginal, filename);
+                    image.SaveAs(savedFileName);
+                    service _item = new service();
+                    _item.image = "/Content/images/" + filename;
+                    _item.caption_vn = item.caption_vn;
+                    _item.caption_en = item.caption_en;
+                    _item.detail_vn = item.detail_vn;
+                    _item.detail_en = item.detail_en;
+                    _item.describe_vn = item.describe_vn;
+                    _item.describe_en = item.describe_en;
+                    data.services.InsertOnSubmit(_item);
+                    data.SubmitChanges();
+                    return RedirectToAction("Service", "Service");
+                }
+                else
+                {
+                    return View();
+                }
+
             }
             catch
             {
                 return View();
-            }
+            }            
         }
         [HttpGet]
         public ActionResult Edit(int id)
@@ -47,20 +72,36 @@ namespace AnhPhatMVC.Areas.Admin.Controllers
         }
 
         [HttpPost]
-        public ActionResult Edit(service item)
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(service item, HttpPostedFileBase image)
         {
             try
             {
-                service _newt = data.services.FirstOrDefault(x => x.id == item.id);
-                _newt.caption_vn = item.caption_vn;
-                _newt.caption_en = item.caption_en;
-                _newt.detail_vn = item.detail_vn;
-                _newt.detail_en = item.detail_en;              
-                _newt.describe_vn = item.describe_vn;
-                _newt.describe_en = item.describe_en;
-                _newt.image = item.image;
-                data.SubmitChanges();
-                return RedirectToAction("Service", "Service");
+                if (image != null)
+                {
+
+                    //Save image to file
+                    var filename = Guid.NewGuid().ToString() + image.FileName;
+                    var filePathOriginal = Server.MapPath("/Content/images");
+
+                    string savedFileName = Path.Combine(filePathOriginal, filename);
+                    image.SaveAs(savedFileName);
+                    service _item = data.services.FirstOrDefault(x=>x.id == item.id);
+                    _item.image = "/Content/images/" + filename;
+                    _item.caption_vn = item.caption_vn;
+                    _item.caption_en = item.caption_en;
+                    _item.detail_vn = item.detail_vn;
+                    _item.detail_en = item.detail_en;
+                    _item.describe_vn = item.describe_vn;
+                    _item.describe_en = item.describe_en;                   
+                    data.SubmitChanges();
+                    return RedirectToAction("Service", "Service");
+                }
+                else
+                {
+                    return View();
+                }
+
             }
             catch
             {

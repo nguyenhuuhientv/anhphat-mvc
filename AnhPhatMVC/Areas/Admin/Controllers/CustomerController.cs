@@ -1,6 +1,7 @@
 ﻿using AnhPhatMVC.Context;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -26,13 +27,34 @@ namespace AnhPhatMVC.Areas.Admin.Controllers
             return new ManagerController().KiemTraDaDangNhap(View());
         }
         [HttpPost]
-        public ActionResult Create(customer item)
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(customer item, HttpPostedFileBase image)
         {
             try
             {
-                data.customers.InsertOnSubmit(item);
-                data.SubmitChanges();
-                return RedirectToAction("Customer", "Customer");
+                if (image != null)
+                {
+
+                    //Save image to file
+                    var filename = Guid.NewGuid().ToString() + image.FileName;
+                    var filePathOriginal = Server.MapPath("/Content/images");
+
+                    string savedFileName = Path.Combine(filePathOriginal, filename);
+                    image.SaveAs(savedFileName);
+                    customer _item = new customer();
+                    _item.image = "/Content/images/" + filename;
+                    _item.name = item.name;
+                    _item.describe_vn = item.describe_vn;
+                    _item.describe_en = item.describe_en;
+                    data.customers.InsertOnSubmit(_item);
+                    data.SubmitChanges();
+                    return RedirectToAction("Customer", "Customer");
+                }
+                else
+                {
+                    return View();
+                }
+
             }
             catch
             {
@@ -47,17 +69,32 @@ namespace AnhPhatMVC.Areas.Admin.Controllers
         }
 
         [HttpPost]
-        public ActionResult Edit(customer item)
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(customer item, HttpPostedFileBase image)
         {
             try
             {
-                customer _cus = data.customers.FirstOrDefault(x => x.id == item.id);
-                _cus.name = item.name;
-                _cus.describe_vn = item.describe_vn;
-                _cus.describe_en = item.describe_en;
-                _cus.image = item.image;
-                data.SubmitChanges();
-                return RedirectToAction("Customer", "Customer");
+                if (image != null)
+                {
+
+                    //Save image to file
+                    var filename = Guid.NewGuid().ToString() + image.FileName;
+                    var filePathOriginal = Server.MapPath("/Content/images");
+                    string savedFileName = Path.Combine(filePathOriginal, filename);
+                    image.SaveAs(savedFileName);
+                    customer _item = data.customers.FirstOrDefault(x => x.id == item.id);
+                    _item.image = "/Content/images/" + filename;
+                    _item.name = item.name;
+                    _item.describe_vn = item.describe_vn;
+                    _item.describe_en = item.describe_en;
+                    data.SubmitChanges();
+                    return RedirectToAction("Customer", "Customer");
+                }
+                else
+                {
+                    return View();
+                }
+
             }
             catch
             {

@@ -2,6 +2,7 @@
 using AnhPhatMVC.Context;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -27,23 +28,38 @@ namespace AnhPhatMVC.Areas.Admin.Controllers
             return new ManagerController().KiemTraDaDangNhap(View());
         }
         [HttpPost]
-        public ActionResult Create(new_new item)
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(new_new item, HttpPostedFileBase image)
         {
+
             try
             {
-                new_new _newt = new new_new(); 
-                _newt.caption_vn = item.caption_vn;
-                _newt.caption_en = item.caption_en;
-                _newt.detail_vn = item.detail_vn;
-                _newt.detail_en = item.detail_en;
-                _newt.group_new = item.group_new;
-                _newt.describe_vn = item.describe_vn;
-                _newt.describe_en = item.describe_en;
-                _newt.image = item.image;
-                _newt.created_at = DateTime.Now;
-                data.new_news.InsertOnSubmit(_newt);
-                data.SubmitChanges();
-                return RedirectToAction("New", "News");
+                if (image != null)
+                {
+                    //Save image to file
+                    var filename = Guid.NewGuid().ToString() + image.FileName;
+                    var filePathOriginal = Server.MapPath("/Content/images");
+                    string savedFileName = Path.Combine(filePathOriginal, filename);
+                    image.SaveAs(savedFileName);
+                    new_new _newt = new new_new();
+                    _newt.caption_vn = item.caption_vn;
+                    _newt.caption_en = item.caption_en;
+                    _newt.detail_vn = item.detail_vn;
+                    _newt.detail_en = item.detail_en;
+                    _newt.group_new = item.group_new;
+                    _newt.describe_vn = item.describe_vn;
+                    _newt.describe_en = item.describe_en;
+                    _newt.image = "/Content/images/"+ filename;
+                    _newt.created_at = DateTime.Now;
+                    data.new_news.InsertOnSubmit(_newt);
+                    data.SubmitChanges();
+                    return RedirectToAction("New", "News");
+                }
+                else
+                {
+                    return View();
+                }
+
             }
             catch
             {
@@ -58,27 +74,42 @@ namespace AnhPhatMVC.Areas.Admin.Controllers
         }
 
         [HttpPost]
-        public ActionResult Edit(new_new item)
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(new_new item, HttpPostedFileBase image)
         {
             try
             {
-                new_new _newt = data.new_news.FirstOrDefault(x => x.id == item.id);
-                _newt.caption_vn = item.caption_vn;
-                _newt.caption_en = item.caption_en;
-                _newt.detail_vn = item.detail_vn;
-                _newt.detail_en = item.detail_en;
-                _newt.group_new = item.group_new;
-                _newt.describe_vn = item.describe_vn;
-                _newt.describe_en = item.describe_en;
-                _newt.created_at = item.created_at;
-                _newt.image = item.image;                
-                data.SubmitChanges();
-                return RedirectToAction("New", "News");
+                if (image != null)
+                {
+
+                    //Save image to file
+                    var filename = Guid.NewGuid().ToString() + image.FileName;
+                    var filePathOriginal = Server.MapPath("/Content/images");
+                    string savedFileName = Path.Combine(filePathOriginal, filename);
+                    image.SaveAs(savedFileName);
+                    new_new _newt = data.new_news.FirstOrDefault(x => x.id == item.id);
+                    _newt.caption_vn = item.caption_vn;
+                    _newt.caption_en = item.caption_en;
+                    _newt.detail_vn = item.detail_vn;
+                    _newt.detail_en = item.detail_en;
+                    _newt.group_new = item.group_new;
+                    _newt.describe_vn = item.describe_vn;
+                    _newt.describe_en = item.describe_en;
+                    _newt.created_at = item.created_at;
+                    _newt.image = "/Content/images/" + filename;
+                    data.SubmitChanges();
+                    return RedirectToAction("New", "News");
+                }
+                else
+                {
+                    return View();
+                }
+
             }
             catch
             {
                 return View();
-            }
+            }           
         }
 
         [HttpGet]

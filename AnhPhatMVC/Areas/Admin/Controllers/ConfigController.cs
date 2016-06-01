@@ -1,6 +1,7 @@
 ﻿using AnhPhatMVC.Context;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -17,7 +18,7 @@ namespace AnhPhatMVC.Areas.Admin.Controllers
         }
         public ActionResult Config()
         {
-            System.Web.HttpContext.Current.Session["DanhMuc"] = "Config";
+            System.Web.HttpContext.Current.Session["DanhMuc"] = "Cấu hình";
             List<config> list_group = data.configs.ToList();
             return new ManagerController().KiemTraDaDangNhap(View(list_group));
         }
@@ -47,19 +48,38 @@ namespace AnhPhatMVC.Areas.Admin.Controllers
         }
 
         [HttpPost]
-        public ActionResult Edit(config item)
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(config item, HttpPostedFileBase image)
         {
             try
             {
-                config _config = data.configs.FirstOrDefault(x => x.id == item.id);
-                _config.value = item.value;                
-                data.SubmitChanges();
-                return RedirectToAction("Config", "Config");
+                if (image != null)
+                {
+
+                    //Save image to file
+                    var filename = Guid.NewGuid().ToString() + image.FileName;
+                    var filePathOriginal = Server.MapPath("/Content/images");
+                    string savedFileName = Path.Combine(filePathOriginal, filename);
+                    image.SaveAs(savedFileName);
+                    config _item = data.configs.FirstOrDefault(x => x.id == item.id);
+                    _item.value = "/Content/images/" + filename;                  
+                    data.SubmitChanges();
+                    return RedirectToAction("Config", "Config");
+                }
+                else
+                {
+                    config _config = data.configs.FirstOrDefault(x => x.id == item.id);
+                    _config.value = item.value;
+                    data.SubmitChanges();
+                    return RedirectToAction("Config", "Config");
+                }
+
             }
             catch
             {
                 return View();
-            }
+            }            
+
         }
 
         [HttpGet]

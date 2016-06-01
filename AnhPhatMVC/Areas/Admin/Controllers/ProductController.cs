@@ -1,6 +1,7 @@
 ﻿using AnhPhatMVC.Context;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -26,18 +27,44 @@ namespace AnhPhatMVC.Areas.Admin.Controllers
             return new ManagerController().KiemTraDaDangNhap(View());
         }
         [HttpPost]
-        public ActionResult Create(product item)
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(product item, HttpPostedFileBase image)
         {
             try
             {
-                data.products.InsertOnSubmit(item);
-                data.SubmitChanges();
-                return RedirectToAction("Product", "Product");
+                if (image != null)
+                {
+
+                    //Save image to file
+                    var filename = Guid.NewGuid().ToString() + image.FileName;
+                    var filePathOriginal = Server.MapPath("/Content/images");
+
+                    string savedFileName = Path.Combine(filePathOriginal, filename);
+                    image.SaveAs(savedFileName);
+                    product _item = new product();
+                    _item.image = "/Content/images/" + filename;
+                    _item.caption_vn = item.caption_vn;
+                    _item.caption_en = item.caption_en;
+                    _item.describe_vn = item.describe_vn;
+                    _item.describe_en = item.describe_en;
+                    _item.detail_vn = item.detail_vn;
+                    _item.detail_en = item.detail_en;
+                    _item.group_id = item.group_id;
+                    data.products.InsertOnSubmit(_item);
+                    data.SubmitChanges();
+                    return RedirectToAction("Product", "Product");
+                }
+                else
+                {
+                    return View();
+                }
+
             }
             catch
             {
                 return View();
             }
+            
         }
         [HttpGet]
         public ActionResult Edit(int id)
@@ -47,25 +74,44 @@ namespace AnhPhatMVC.Areas.Admin.Controllers
         }
 
         [HttpPost]
-        public ActionResult Edit(product item)
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(product item, HttpPostedFileBase image)
         {
+
             try
             {
-                product _product = data.products.FirstOrDefault(x => x.id == item.id);               
-                _product.caption_vn = item.caption_vn;
-                _product.caption_en = item.caption_en;
-                _product.describe_vn = item.describe_vn;
-                _product.describe_en = item.describe_en;
-                _product.detail_vn = item.detail_vn;
-                _product.detail_en = item.detail_en;
-                _product.group_id = item.group_id;
-                data.SubmitChanges();
-                return RedirectToAction("Product", "Product");
+                if (image != null)
+                {
+
+                    //Save image to file
+                    var filename = Guid.NewGuid().ToString() + image.FileName;
+                    var filePathOriginal = Server.MapPath("/Content/images");
+
+                    string savedFileName = Path.Combine(filePathOriginal, filename);
+                    image.SaveAs(savedFileName);
+                    product _item = data.products.FirstOrDefault(x => x.id == item.id);
+                    _item.image = "/Content/images/" + filename;
+                    _item.caption_vn = item.caption_vn;
+                    _item.caption_en = item.caption_en;
+                    _item.describe_vn = item.describe_vn;
+                    _item.describe_en = item.describe_en;
+                    _item.detail_vn = item.detail_vn;
+                    _item.detail_en = item.detail_en;
+                    _item.group_id = item.group_id;                 
+                    data.SubmitChanges();
+                    return RedirectToAction("Product", "Product");
+                }
+                else
+                {
+                    return View();
+                }
+
             }
             catch
             {
                 return View();
             }
+
         }
 
         [HttpGet]
