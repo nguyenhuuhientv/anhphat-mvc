@@ -22,19 +22,36 @@ namespace AnhPhatMVC.Areas.Admin.Controllers
             List<product> _list = data.products.ToList();
             return new ManagerController().KiemTraDaDangNhap(View(_list));
         }
+        
         public ActionResult Create()
         {
+            //Get the value from database and then set it to ViewBag to pass it View
+            IEnumerable<SelectListItem> items = data.group_products.Select(c => new SelectListItem
+            {
+                Value = c.id.ToString(),
+                Text = c.caption_vn
+
+            });
+            ViewBag.ListItem = items;
             return new ManagerController().KiemTraDaDangNhap(View());
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(product item, HttpPostedFileBase image)
+        public ActionResult Create(product item, HttpPostedFileBase image, string group_id)
         {
-            try
+            IEnumerable<SelectListItem> items = data.group_products.Select(c => new SelectListItem
             {
+                Value = c.id.ToString(),
+                Text = c.caption_vn
+
+            });
+            ViewBag.ListItem = items;
+            try
+            {           
+               
                 if (image != null)
                 {
-
+                    string id = Request.Form["ListItem"].ToString();
                     //Save image to file
                     var filename = Guid.NewGuid().ToString() + image.FileName;
                     var filePathOriginal = Server.MapPath("/Content/images");
@@ -49,7 +66,7 @@ namespace AnhPhatMVC.Areas.Admin.Controllers
                     _item.describe_en = item.describe_en;
                     _item.detail_vn = item.detail_vn;
                     _item.detail_en = item.detail_en;
-                    _item.group_id = item.group_id;
+                    _item.group_id = int.Parse(id);
                     data.products.InsertOnSubmit(_item);
                     data.SubmitChanges();
                     return RedirectToAction("Product", "Product");
@@ -69,6 +86,13 @@ namespace AnhPhatMVC.Areas.Admin.Controllers
         [HttpGet]
         public ActionResult Edit(int id)
         {
+            IEnumerable<SelectListItem> items = data.group_products.Select(c => new SelectListItem
+            {
+                Value = c.id.ToString(),
+                Text = c.caption_vn
+
+            });
+            ViewBag.ListItem = items;
             product item = data.products.FirstOrDefault(x => x.id == id);
             return new ManagerController().KiemTraDaDangNhap(View(item));
         }
@@ -78,11 +102,18 @@ namespace AnhPhatMVC.Areas.Admin.Controllers
         public ActionResult Edit(product item, HttpPostedFileBase image)
         {
 
+            IEnumerable<SelectListItem> items = data.group_products.Select(c => new SelectListItem
+            {
+                Value = c.id.ToString(),
+                Text = c.caption_vn
+
+            });
+            ViewBag.ListItem = items;
             try
             {
                 if (image != null)
                 {
-
+                    string id = Request.Form["ListItem"].ToString();
                     //Save image to file
                     var filename = Guid.NewGuid().ToString() + image.FileName;
                     var filePathOriginal = Server.MapPath("/Content/images");
@@ -97,7 +128,7 @@ namespace AnhPhatMVC.Areas.Admin.Controllers
                     _item.describe_en = item.describe_en;
                     _item.detail_vn = item.detail_vn;
                     _item.detail_en = item.detail_en;
-                    _item.group_id = item.group_id;                 
+                    _item.group_id = int.Parse(id);
                     data.SubmitChanges();
                     return RedirectToAction("Product", "Product");
                 }

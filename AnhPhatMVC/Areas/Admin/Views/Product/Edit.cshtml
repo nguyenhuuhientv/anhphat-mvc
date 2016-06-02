@@ -76,7 +76,13 @@
         <div class="form-group">
             <p class="control-label col-md-2"><a>Nhóm sản phẩm</a></p>
             <div class="col-md-10">
-                @Html.EditorFor(model => model.group_id, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.DropDownList("ListItem", (SelectList)ViewBag.id, "--Select One--", new
+           { //anonymous typess
+               @class = "myCssClass",
+               onchange = "someFunction();"
+           })
+
+
                 @Html.ValidationMessageFor(model => model.group_id, "", new { @class = "text-danger" })
             </div>
         </div>
