@@ -13,7 +13,7 @@ namespace AnhPhatMVC.Areas.Admin.Controllers
         AnhPhatDbContextDataContext data = new AnhPhatDbContextDataContext();
         // GET: Admin/Config
         public ActionResult Index()
-        {           
+        {
             return View();
         }
         public ActionResult Config()
