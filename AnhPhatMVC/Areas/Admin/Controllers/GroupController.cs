@@ -53,7 +53,8 @@ namespace AnhPhatMVC.Areas.Admin.Controllers
             {
                 group_product _group = data.group_products.FirstOrDefault(x => x.id == item.id);
                 _group.caption_vn = item.caption_vn;
-                _group.caption_en = item.caption_en;               
+                _group.caption_en = item.caption_en;
+                _group.orderby = item.orderby;  
                 data.SubmitChanges();
                 return RedirectToAction("Group", "Group");
             }

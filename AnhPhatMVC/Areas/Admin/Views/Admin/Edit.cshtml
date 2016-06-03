@@ -6,7 +6,12 @@
 }
 
 <h2>Chỉnh sửa</h2>
-
+@if (null != TempData["alertMessage"])
+{
+    <script type="text/javascript">
+       alert("@TempData["alertMessage"]");
+    </script>
+}
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
