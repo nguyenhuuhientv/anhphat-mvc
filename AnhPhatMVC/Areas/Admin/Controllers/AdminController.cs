@@ -1,9 +1,8 @@
 ﻿using AnhPhatMVC.Context;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
+using System.Web.UI;
 
 namespace AnhPhatMVC.Areas.Admin.Controllers
 {
@@ -72,18 +71,25 @@ namespace AnhPhatMVC.Areas.Admin.Controllers
         {
             try
             {
-                user _user = new user();
-                _user.updated_at = DateTime.Now;
-                _user.created_at = DateTime.Now;
-                _user.username = item.username;
-                _user.password = item.password;
-                _user.email = item.email;
-                _user.birthday = item.birthday;
-                _user.role = item.role;           
-                data.users.InsertOnSubmit(_user);
-                data.SubmitChanges();
-                return RedirectToAction("QuanLyTaiKhoan", "Admin");
-
+                if (data.users.FirstOrDefault(x => x.username == item.username) == null)
+                {
+                    user _user = new user();
+                    _user.updated_at = DateTime.Now;
+                    _user.created_at = DateTime.Now;
+                    _user.username = item.username;
+                    _user.password = item.password;
+                    _user.email = item.email;
+                    _user.birthday = item.birthday;
+                    _user.role = item.role;
+                    data.users.InsertOnSubmit(_user);
+                    data.SubmitChanges();
+                    return RedirectToAction("QuanLyTaiKhoan", "Admin");
+                }
+                else
+                {
+                    TempData["alertMessage"] = "Tài khoản đã tồn tại";
+                    return View();
+                }
             }
             catch
             {
@@ -121,15 +127,23 @@ namespace AnhPhatMVC.Areas.Admin.Controllers
         {
             try
             {
-                user _user = data.users.FirstOrDefault(x => x.id == item.id);
-                _user.updated_at = DateTime.Now;
-                _user.username = item.username;
-                _user.password = item.password;
-                _user.email = item.email;
-                _user.birthday = item.birthday;
-                _user.role = item.role;
-                data.SubmitChanges();
-                return RedirectToAction("QuanLyTaiKhoan", "Admin");
+                if (data.users.FirstOrDefault(x => x.username == item.username) == null)
+                {
+                    user _user = data.users.FirstOrDefault(x => x.id == item.id);
+                    _user.updated_at = DateTime.Now;
+                    _user.username = item.username;
+                    _user.password = item.password;
+                    _user.email = item.email;
+                    _user.birthday = item.birthday;
+                    _user.role = item.role;
+                    data.SubmitChanges();
+                    return RedirectToAction("QuanLyTaiKhoan", "Admin");
+                }
+                else
+                {
+                    TempData["alertMessage"] = "Tài khoản đã tồn tại";
+                    return View();
+                }
             }
             catch
             {
