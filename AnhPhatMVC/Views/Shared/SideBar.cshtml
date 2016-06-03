@@ -1,0 +1,110 @@
+﻿
+@model List<AnhPhatMVC.Context.group>
+    <div class="panel panel-default panel-categories">
+    <div class="panel-heading">
+        <h4 class="panel-title">
+            <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#subjects" aria-expanded="false">
+                <i class="fa fa-bars"></i> @(AnhPhatMVC.Resources.Main.DANHMUC)
+            </a>
+        </h4>
+    </div>
+    <div id="subjects" class="panel-collapse collapse in" aria-expanded="false">
+        <div class="panel-body">
+            <ul class="list-item">
+                @foreach (var item in Model)
+                {
+                    <li class="item">
+                        <a href="#"><i class="fa fa-angle-left"></i>@item.caption</a>
+                    </li>
+                }
+                
+           
+            </ul>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+</div>
+<div class="pr text-center">
+    <img src="https://placehold.it/300x400" class="image-responsive">
+</div>
+<div class="panel panel-default panel-categories panel-box panel-new-product">
+    <div class="panel-heading">
+        <h4 class="panel-title">
+            <a class="#" data-toggle="collapse" data-parent="#accordion" href="#" aria-expanded="false">
+                <i class="fa fa-bars"></i> @(AnhPhatMVC.Resources.Main.SANPHAMMOINHAT)
+            </a>
+        </h4>
+    </div>
+    <div class="panel-collapse collapse in" aria-expanded="false">
+        <div class="panel-body">
+            <ul class="list-item">
+                <li class="item">
+                    <a href="#">
+                        <div class="col-md-5 image-intro text-center col-xs-5">
+                            <img src="https://placehold.it/150x100" class="image-responsive">
+                        </div>
+                        <div class="col-md-7 col-xs-7">
+                            <h3>Máy lọc nước DLink DK4 New</h3>
+                            <p>Máy lọc nước</p>
+                        </div>
+                        <div class="clearfix"></div>
+                    </a>
+                </li>
+                <li class="item">
+                    <a href="#">
+                        <div class="col-md-5 image-intro text-center col-xs-5">
+                            <img src="https://placehold.it/150x100" class="image-responsive">
+                        </div>
+                        <div class="col-md-7 col-xs-7">
+                            <h3>Máy lọc nước DLink DK4 New</h3>
+                            <p>Máy lọc nước</p>
+                        </div>
+                        <div class="clearfix"></div>
+                    </a>
+                </li>
+                <li class="item">
+                    <a href="#">
+                        <div class="col-md-5 image-intro text-center col-xs-5">
+                            <img src="https://placehold.it/150x100" class="image-responsive">
+                        </div>
+                        <div class="col-md-7 col-xs-7">
+                            <h3>Máy lọc nước DLink DK4 New</h3>
+                            <p>Máy lọc nước</p>
+                        </div>
+                        <div class="clearfix"></div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+</div>
+<div class="panel panel-default panel-categories panel-box panel-support">
+    <div class="panel-heading">
+        <h4 class="panel-title">
+            <a class="#" data-toggle="collapse" data-parent="#accordion" href="#" aria-expanded="false">
+                <i class="fa fa-skype"></i> @(AnhPhatMVC.Resources.Main.HOTROTRUCTUYEN)
+            </a>
+        </h4>
+    </div>
+    <div class="panel-collapse collapse in" aria-expanded="false">
+        <div class="panel-body">
+            <ul class="list-item">
+                <li class="item">
+                    <script type="text/javascript" src="https://secure.skypeassets.com/i/scom/js/skype-uri.js"></script>
+                    <div id="SkypeButton_Call_nhuuhien_1">
+                        <script type="text/javascript">
+                        Skype.ui({
+                          "name": "chat",
+                          "element": "SkypeButton_Call_nhuuhien_1",
+                          "participants": ["nhuuhien"],
+                          "imageSize": 32
+                        });
+                        </script>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+</div>

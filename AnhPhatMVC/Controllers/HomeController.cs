@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AnhPhatMVC.Context;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,8 +9,11 @@ namespace AnhPhatMVC.Controllers
 {
     public class HomeController : Controller
     {
+        
+
         public ActionResult Index()
         {
+
             return View();
         }
 
