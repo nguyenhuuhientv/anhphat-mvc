@@ -1,5 +1,4 @@
-﻿@model List<AnhPhatMVC.Context.group> 
-<div class="footer">
+﻿<div class="footer">
     <div class="top">
         <div class="container">
             <div class="row">
@@ -21,7 +20,7 @@
                     </h4>
                     <div class="content">
                         <ul class="categories">
-                            @foreach (var item in Model)
+                            @foreach (var item in Model.Groups)
                             {
                                 <li class="col-md-6"><a href="#"><i class="fa fa-star"></i> @item.caption</a></li>
                             }
