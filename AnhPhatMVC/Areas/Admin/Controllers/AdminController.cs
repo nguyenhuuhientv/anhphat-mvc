@@ -87,7 +87,7 @@ namespace AnhPhatMVC.Areas.Admin.Controllers
                 }
                 else
                 {
-                    TempData["alertMessage"] = "Tài khoản đã tồn tại";
+                    TempData["alertMessage"] = "Tai khoan da ton tai";
                     return View();
                 }
             }
@@ -127,8 +127,6 @@ namespace AnhPhatMVC.Areas.Admin.Controllers
         {
             try
             {
-                if (data.users.FirstOrDefault(x => x.username == item.username) == null)
-                {
                     user _user = data.users.FirstOrDefault(x => x.id == item.id);
                     _user.updated_at = DateTime.Now;
                     _user.username = item.username;
@@ -137,13 +135,7 @@ namespace AnhPhatMVC.Areas.Admin.Controllers
                     _user.birthday = item.birthday;
                     _user.role = item.role;
                     data.SubmitChanges();
-                    return RedirectToAction("QuanLyTaiKhoan", "Admin");
-                }
-                else
-                {
-                    TempData["alertMessage"] = "Tài khoản đã tồn tại";
-                    return View();
-                }
+                    return RedirectToAction("QuanLyTaiKhoan", "Admin");              
             }
             catch
             {
