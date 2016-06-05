@@ -1,11 +1,12 @@
-﻿<!-- Static navbar top -->
+﻿@model dynamic
+<!-- Static navbar top -->
 <div class="header">
     <div class="container">
         <div class="row">
             <ul class="nav navbar-nav col-md-6 col-xs-12">
                 <!--<li><a href="#">Home</a></li>-->
-                <li class="col-xs-12 col-md-6"><a href="#about"><i class="fa fa-envelope-o" aria-hidden="true"></i> anhphat@gmail.com </a></li>
-                <li class="col-xs-12 col-md-6"><a href="#about"><i class="fa fa-phone" aria-hidden="true"></i> 0988 234 726 </a></li>
+                <li class="col-xs-12 col-md-6"><a href="#about"><i class="fa fa-envelope-o" aria-hidden="true"></i> @ViewBag.Config_Email </a></li>
+                <li class="col-xs-12 col-md-6"><a href="#about"><i class="fa fa-phone" aria-hidden="true"></i> @ViewBag.Config_Phone </a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right col-md-6 pull-right col-xs-12">
                 <li class="col-md-1 col-xs-3 text-center pull-right">
@@ -18,10 +19,10 @@
                         <img src='@Url.Content("~/Content/images/vi.png")' width="25" />
                     </a>
                 </li>
-                <li class="col-md-1 col-xs-3 text-center pull-right"><a href="../navbar/"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                <li class="col-md-1 col-xs-3 text-center pull-right"><a href="./"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
-                <li class="col-md-1 col-xs-3 text-center pull-right"><a href="./"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                <li class="col-md-1 col-xs-3 text-center pull-right"><a href="./"><i class="fa fa-youtube" aria-hidden="true"></i></a></li>
+                <li class="col-md-1 col-xs-3 text-center pull-right"><a href="@ViewBag.Config_Facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                <li class="col-md-1 col-xs-3 text-center pull-right"><a href="@ViewBag.Config_Gplus"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+                <li class="col-md-1 col-xs-3 text-center pull-right"><a href="@ViewBag.Config_Twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                <li class="col-md-1 col-xs-3 text-center pull-right"><a href="@ViewBag.Config_Youtube"><i class="fa fa-youtube" aria-hidden="true"></i></a></li>
             </ul>
         </div><!--/.nav-collapse -->
     </div>
@@ -37,7 +38,7 @@
                 <span class="icon-bar"></span>
             </button>
             <a class="navbar-brand" href="#">
-                <img style="width:70px" src="~/Content/images/logo.jpg" />
+                <img style="width:70px" src="@ViewBag.Config_Logo" />
             </a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">

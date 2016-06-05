@@ -13,7 +13,7 @@
     @Styles.Render("~/Content/css")
 </head>
 <body>
-    @RenderPage("_Header.cshtml")
+    @{ Html.RenderAction("Header", "AnhPhat");}
     <div class="container">
         <div class="row">
             <div class="col-md-3">
@@ -27,7 +27,7 @@
         </div>
 
     </div> <!-- /container -->
-    @RenderPage("_Footer.cshtml")
+    @{ Html.RenderAction("Footer", "AnhPhat");}
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
