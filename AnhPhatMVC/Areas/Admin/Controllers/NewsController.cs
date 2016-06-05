@@ -49,6 +49,7 @@ namespace AnhPhatMVC.Areas.Admin.Controllers
                     _newt.group_new = item.group_new;
                     _newt.describe_vn = item.describe_vn;
                     _newt.describe_en = item.describe_en;
+                    _newt.link = new ManagerController().convertToUnSign(item.caption_vn);
                     _newt.image = "/Content/images/"+ filename;
                     _newt.created_at = DateTime.Now;
                     data.new_news.InsertOnSubmit(_newt);
@@ -96,6 +97,7 @@ namespace AnhPhatMVC.Areas.Admin.Controllers
                     _newt.describe_vn = item.describe_vn;
                     _newt.describe_en = item.describe_en;
                     _newt.created_at = item.created_at;
+                    _newt.link = new ManagerController().convertToUnSign(item.caption_vn);
                     _newt.image = "/Content/images/" + filename;
                     data.SubmitChanges();
                     return RedirectToAction("New", "News");

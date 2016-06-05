@@ -30,7 +30,12 @@ namespace AnhPhatMVC.Areas.Admin.Controllers
         {
             try
             {
-                data.group_products.InsertOnSubmit(item);
+                group_product _item = new group_product();
+                _item.caption_vn = item.caption_vn;
+                _item.caption_en = item.caption_en;
+                _item.orderby = item.orderby;
+                _item.link = new ManagerController().convertToUnSign(item.caption_vn);
+                data.group_products.InsertOnSubmit(_item);
                 data.SubmitChanges();
                 return RedirectToAction("Group", "Group");
             }
@@ -54,7 +59,8 @@ namespace AnhPhatMVC.Areas.Admin.Controllers
                 group_product _group = data.group_products.FirstOrDefault(x => x.id == item.id);
                 _group.caption_vn = item.caption_vn;
                 _group.caption_en = item.caption_en;
-                _group.orderby = item.orderby;  
+                _group.orderby = item.orderby;
+                _group.link = new ManagerController().convertToUnSign(item.caption_vn);
                 data.SubmitChanges();
                 return RedirectToAction("Group", "Group");
             }

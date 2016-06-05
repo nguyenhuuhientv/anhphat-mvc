@@ -82,11 +82,16 @@
                onchange = "someFunction();"
            })
 
-
                 @Html.ValidationMessageFor(model => model.group_id, "", new { @class = "text-danger" })
             </div>
         </div>
-
+        <div class="form-group">
+            <p class="control-label col-md-2"><a>Sản phẩm nổi bật</a></p>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.highlights)
+                @Html.ValidationMessageFor(model => model.highlights, "", new { @class = "text-danger" })
+            </div>
+        </div>
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <input type="submit" value="Save" class="btn btn-default" />

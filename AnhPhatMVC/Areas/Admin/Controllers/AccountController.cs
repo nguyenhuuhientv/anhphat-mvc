@@ -14,7 +14,7 @@ namespace AnhPhatMVC.Areas.Admin.Controllers
         // GET: Admin/Account
         AnhPhatDbContextDataContext data = new AnhPhatDbContextDataContext();
         public ActionResult Login()
-        {
+        {          
             return new ManagerController().KiemTra(View());
         }
 

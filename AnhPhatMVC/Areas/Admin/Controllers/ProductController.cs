@@ -67,6 +67,8 @@ namespace AnhPhatMVC.Areas.Admin.Controllers
                     _item.detail_vn = item.detail_vn;
                     _item.detail_en = item.detail_en;
                     _item.group_id = int.Parse(id);
+                    _item.highlights = item.highlights;
+                    _item.link = new ManagerController().convertToUnSign(item.caption_vn);
                     data.products.InsertOnSubmit(_item);
                     data.SubmitChanges();
                     return RedirectToAction("Product", "Product");
@@ -129,6 +131,8 @@ namespace AnhPhatMVC.Areas.Admin.Controllers
                     _item.detail_vn = item.detail_vn;
                     _item.detail_en = item.detail_en;
                     _item.group_id = int.Parse(id);
+                    _item.highlights = item.highlights;
+                    _item.link = new ManagerController().convertToUnSign(item.caption_vn);
                     data.SubmitChanges();
                     return RedirectToAction("Product", "Product");
                 }
