@@ -37,6 +37,7 @@ namespace AnhPhatMVC.Areas.Admin.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [ValidateInput(false)]
         public ActionResult Create(product item, HttpPostedFileBase image, string group_id)
         {
             IEnumerable<SelectListItem> items = data.group_products.Select(c => new SelectListItem
