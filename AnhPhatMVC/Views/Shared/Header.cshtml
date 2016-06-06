@@ -37,32 +37,35 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="/">
                 <img style="width:70px" src="@ViewBag.Config_Logo" />
             </a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
-                <li class="active text-center"><a href="#"><span class="fa fa-home fa-2x icon"></span>@(AnhPhatMVC.Resources.Main.TRANGCHU)</a></li>
-                <li><a href="#about"><span class="fa fa-home fa-2x icon"></span>@(AnhPhatMVC.Resources.Main.GIOITHIEU)</a></li>
+                <li class="active text-center"><a href="/"><span class="fa fa-home fa-2x icon"></span>@(AnhPhatMVC.Resources.Main.TRANGCHU)</a></li>
+                <li><a href="/gioi-thieu"><span class="fa fa-home fa-2x icon"></span>@(AnhPhatMVC.Resources.Main.GIOITHIEU)</a></li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                         <span class="fa fa-rss fa-2x icon"></span>@(AnhPhatMVC.Resources.Main.SANPHAM)
                     </a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">Action</a></li>
-                        <li><a href="#">Another action</a></li>
-                        <li><a href="#">Something else here</a></li>
-                        <li><a href="#">Separated link</a></li>
-                        <li><a href="#">One more separated link</a></li>
-                    </ul>
+                    @if (Model.Groups != null)
+                    {
+                        <ul class="dropdown-menu">
+                            @foreach (var item in Model.Groups)
+                            {
+                                <li><a href="/danh-sach-san-pham/@item.link">@item.caption</a></li>
+                            }
+                        </ul>
+                    }   
+                        
                 </li>
-                <li><a href="#contact"><span class="fa fa-leaf fa-2x icon"></span>@(AnhPhatMVC.Resources.Main.DICHVU)</a></li>
+                <li><a href="/dich-vu"><span class="fa fa-leaf fa-2x icon"></span>@(AnhPhatMVC.Resources.Main.DICHVU)</a></li>
 
-                <li><a href="#about"><span class="fa fa-shopping-bag fa-2x icon"></span>@(AnhPhatMVC.Resources.Main.TINTUC)</a></li>
+                <li><a href="/tin-tuc"><span class="fa fa-shopping-bag fa-2x icon"></span>@(AnhPhatMVC.Resources.Main.TINTUC)</a></li>
 
-                <li><a href="#contact"><span class="fa fa-percent fa-2x icon"></span>@(AnhPhatMVC.Resources.Main.KHUYENMAI)</a></li>
-                <li><a href="#about"><span class="fa fa-info-circle fa-2x icon"></span>@(AnhPhatMVC.Resources.Main.LIENHE)</a></li>
+                <li><a href="/khuyen-mai"><span class="fa fa-percent fa-2x icon"></span>@(AnhPhatMVC.Resources.Main.KHUYENMAI)</a></li>
+                <li><a href="/lien-he"><span class="fa fa-info-circle fa-2x icon"></span>@(AnhPhatMVC.Resources.Main.LIENHE)</a></li>
             </ul>
         </div><!--/.nav-collapse -->
     </div>

@@ -1,29 +1,32 @@
 ﻿@{
     ViewBag.Title = "Home Page";
 }
+@model dynamic
 
 <div class="content">
-    <ul class="bxslider">
-        <li><img src="https://placehold.it/900x350" class="image-responsive" /></li>
-        <li><img src="https://placehold.it/900x350" class="image-responsive" /></li>
-        <li><img src="https://placehold.it/900x350" class="image-responsive" /></li>
-        <li><img src="https://placehold.it/900x350" class="image-responsive" /></li>
-    </ul>
+    @if (Model.Slides != null)
+            {
+        <ul class="bxslider">
+            @foreach (var item in Model.Slides)
+            {
+                <li><img src="@item.image" class="image-responsive" /></li>
+            }
+        </ul>
+    }
     <div class="box">
         <div class="title">
             <h3>@(AnhPhatMVC.Resources.Main.THUONGHIEU)</h3>
         </div>
         <div class="detail">
-            <ul class="partner">
-                <li><a href="#"><img src="https://placehold.it/150x80" class="image-responsive" /></a></li>
-                <li><img src="https://placehold.it/150x80" class="image-responsive" /></li>
-                <li><img src="https://placehold.it/150x80" class="image-responsive" /></li>
-                <li><img src="https://placehold.it/150x80" class="image-responsive" /></li>
-                <li><img src="https://placehold.it/150x80" class="image-responsive" /></li>
-                <li><img src="https://placehold.it/150x80" class="image-responsive" /></li>
-                <li><img src="https://placehold.it/150x80" class="image-responsive" /></li>
-                <li><img src="https://placehold.it/150x80" class="image-responsive" /></li>
-            </ul>
+            @if (Model.Partners != null)
+            {
+                <ul class="partner">
+                    @foreach (var item in Model.Partners)
+                    {
+                        <li><a href="@item.link_action" target="_blank"><img src="@item.image" class="image-responsive" /></a></li>
+                    }
+                </ul>
+            }
         </div>
     </div>
     <div class="box product-hot">

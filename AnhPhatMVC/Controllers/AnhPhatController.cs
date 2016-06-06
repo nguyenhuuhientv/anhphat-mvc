@@ -29,6 +29,7 @@ namespace AnhPhatMVC.Controllers
             modelDynamic.Products = productNewList;
 
             ViewBag.YoutubeLink = data.configs.FirstOrDefault(x => x.key == "video_intro").value;
+            ViewBag.Config_Skype = data.configs.FirstOrDefault(x => x.key == "skype").value;
             return PartialView(modelDynamic);
         }
 
@@ -57,8 +58,9 @@ namespace AnhPhatMVC.Controllers
             ViewBag.Config_Youtube = data.configs.FirstOrDefault(x => x.key == "youtube").value;
             ViewBag.Config_Twitter = data.configs.FirstOrDefault(x => x.key == "twitter").value;
 
-            var model = data.sp_Get_Group_Product(this.getLanguageCode()).ToList();
-            return PartialView(model);
+            dynamic modelDynamic = new ExpandoObject();
+            modelDynamic.Groups = data.sp_Get_Group_Product(this.getLanguageCode()).ToList();
+            return PartialView(modelDynamic);
         }
 
         public String getLanguageCode()
