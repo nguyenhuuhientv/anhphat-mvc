@@ -49,7 +49,7 @@ namespace AnhPhatMVC.Areas.Admin.Controllers
         }
         public string convertToUnSign(string s)
         {
-            string stFormD = s.Normalize(NormalizationForm.FormD);
+            string stFormD = s.Trim().Normalize(NormalizationForm.FormD);
             StringBuilder sb = new StringBuilder();
             for (int ich = 0; ich < stFormD.Length; ich++)
             {
