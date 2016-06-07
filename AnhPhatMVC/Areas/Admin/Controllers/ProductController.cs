@@ -102,6 +102,7 @@ namespace AnhPhatMVC.Areas.Admin.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [ValidateInput(false)]
         public ActionResult Edit(product item, HttpPostedFileBase image)
         {
 

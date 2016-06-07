@@ -28,6 +28,7 @@ namespace AnhPhatMVC.Areas.Admin.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [ValidateInput(false)]
         public ActionResult Create(service item, HttpPostedFileBase image)
         {
             try
@@ -74,6 +75,7 @@ namespace AnhPhatMVC.Areas.Admin.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [ValidateInput(false)]
         public ActionResult Edit(service item, HttpPostedFileBase image)
         {
             try
