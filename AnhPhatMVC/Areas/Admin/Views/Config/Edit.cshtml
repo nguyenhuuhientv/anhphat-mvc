@@ -33,8 +33,11 @@
                     <input type="file" id="slider" name="image" />
                   }
                   else { 
-                        @Html.EditorFor(model => model.value, new { htmlAttributes = new { @class = "form-control" } })
-                    }
+                       @Html.TextAreaFor(model => model.value, new { @id = "ckeContent2" })
+                    <script type="text/javascript">
+                    CKEDITOR.replace("ckeContent2");
+                    </script>
+                  }
                     @Html.ValidationMessageFor(model => model.value, "", new { @class = "text-danger" })
                 </div>
             </div>           
