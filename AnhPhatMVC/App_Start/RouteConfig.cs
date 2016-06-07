@@ -12,35 +12,41 @@ namespace AnhPhatMVC
         public static void RegisterRoutes(RouteCollection routes)
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
+            
 
             routes.MapRoute(
-                "GioiThieu",
-                "{gioi-thieu}",
-                new { controller = "GioiThieu", action = "Index" }
+                name: "GioiThieu",
+                url: "gioi-thieu",
+                defaults: new { controller = "GioiThieu", action = "Index"},
+                namespaces: new[] { "AnhPhatMVC.Controllers" }
             );
 
             routes.MapRoute(
-                "DichVu",
-                "{dich-vu}",
-                new { controller = "DichVu", action = "Index" }
+                name: "DichVu",
+                url: "dich-vu",
+                defaults: new { controller = "DichVu", action = "Index" },
+                namespaces: new[] { "AnhPhatMVC.Controllers" }
             );
 
             routes.MapRoute(
-                "TinTuc",
-                "{tin-tuc}",
-                new { controller = "TinTuc", action = "Index" }
+                name: "TinTuc",
+                url: "tin-tuc",
+                defaults: new { controller = "TinTuc", action = "Index" },
+                namespaces: new[] { "AnhPhatMVC.Controllers" }
             );
 
             routes.MapRoute(
-                "KhuyenMai",
-                "{khuyen-mai}",
-                new { controller = "SanPham", action = "KhuyenMai" }
+                name: "KhuyenMai",
+                url: "khuyen-mai",
+                defaults: new { controller = "KhuyenMai", action = "Index" },
+                namespaces: new[] { "AnhPhatMVC.Controllers" }
             );
 
             routes.MapRoute(
-                "LienHe",
-                "{lien-he}",
-                new { controller = "LienHe", action = "Index" }
+                name: "LienHe",
+                url: "lien-he",
+                defaults: new { controller = "LienHe", action = "Index" },
+                namespaces: new[] { "AnhPhatMVC.Controllers" }
             );
 
             routes.MapRoute(
