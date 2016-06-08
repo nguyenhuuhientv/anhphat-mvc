@@ -11,12 +11,7 @@ namespace AnhPhatMVC.Controllers
 {
     public class AnhPhatController : Controller
     {
-        AnhPhatDbContextDataContext data = new AnhPhatDbContextDataContext();
-        // GET: AnhPhat
-        public ActionResult Index()
-        {
-            return View();
-        }
+        public AnhPhatDbContextDataContext data = new AnhPhatDbContextDataContext();
 
         [ChildActionOnly]
         public ActionResult SideBar()
@@ -60,6 +55,7 @@ namespace AnhPhatMVC.Controllers
 
             dynamic modelDynamic = new ExpandoObject();
             modelDynamic.Groups = data.sp_Get_Group_Product(this.getLanguageCode()).ToList();
+            modelDynamic.Services = data.sp_Get_Service(this.getLanguageCode()).ToList();
             return PartialView(modelDynamic);
         }
 
