@@ -12,7 +12,13 @@ namespace AnhPhatMVC
         public static void RegisterRoutes(RouteCollection routes)
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
-            
+
+            routes.MapRoute(
+                name: "TrangChu",
+                url: "trang-chu",
+                defaults: new { controller = "Home", action = "Index" },
+                namespaces: new[] { "AnhPhatMVC.Controllers" }
+            );
 
             routes.MapRoute(
                 name: "GioiThieu",
@@ -22,9 +28,9 @@ namespace AnhPhatMVC
             );
 
             routes.MapRoute(
-                name: "DichVu",
-                url: "dich-vu",
-                defaults: new { controller = "DichVu", action = "Index" },
+                name: "DichVuChiTiet",
+                url: "dich-vu/{link}",
+                defaults: new { controller = "DichVu", action = "View", link = UrlParameter.Optional },
                 namespaces: new[] { "AnhPhatMVC.Controllers" }
             );
 
@@ -36,9 +42,23 @@ namespace AnhPhatMVC
             );
 
             routes.MapRoute(
+                name: "TinTucChiTiet",
+                url: "tin-tuc/{link}",
+                defaults: new { controller = "TinTuc", action = "View", link = UrlParameter.Optional },
+                namespaces: new[] { "AnhPhatMVC.Controllers" }
+            );
+
+            routes.MapRoute(
                 name: "KhuyenMai",
                 url: "khuyen-mai",
                 defaults: new { controller = "KhuyenMai", action = "Index" },
+                namespaces: new[] { "AnhPhatMVC.Controllers" }
+            );
+
+            routes.MapRoute(
+                name: "KhuyenMaiChiTiet",
+                url: "khuyen-mai/{link}",
+                defaults: new { controller = "KhuyenMai", action = "View", link = UrlParameter.Optional },
                 namespaces: new[] { "AnhPhatMVC.Controllers" }
             );
 

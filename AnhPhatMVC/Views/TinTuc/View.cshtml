@@ -1,0 +1,27 @@
+﻿
+@{
+    ViewBag.Title = "View";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model dynamic
+
+<ol class="breadcrumb" style="margin-bottom: 5px;">
+    <li><a href="@Url.RouteUrl("TrangChu")"><i class="fa fa-home"></i> @AnhPhatMVC.Resources.Main.TRANGCHU</a></li>
+    <li><a href="@Url.RouteUrl("TinTuc")">@AnhPhatMVC.Resources.Main.TINTUC</a></li>
+    <li class="active">@Model.caption</li>
+</ol>
+
+<div class="row content news">
+    <div class="col-md-12">
+        <h4>@Model.caption</h4>
+        <p>@Model.created_at</p>
+        <div class="image-intro text-center">
+            <img src="@Model.image" />
+        </div>
+        <div class="detail">
+            @Model.detail
+        </div>
+    </div>
+</div>
+
+

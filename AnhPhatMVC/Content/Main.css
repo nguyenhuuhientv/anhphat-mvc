@@ -3,8 +3,7 @@
 }
 
 body {
-  font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  min-height: 2000px;
+  font-family: Helvetica, Arial, sans-serif;
 }
 
 .navbar-static-top {
@@ -328,3 +327,41 @@ body {
   text-transform: uppercase;
   font-size: 16px;
 }
+.content {
+    padding-top: 15px;
+    padding-bottom:50px;
+}
+
+.news p {
+    font-size: 12px;
+    font-style: italic;
+}
+
+.news .image-intro {
+    margin: 20px 0;
+}
+
+.news img{
+    max-width: 100%;
+}
+
+.news .detail {
+    text-align: justify;
+}
+.news h4, .services h4 {
+    color: rgb(9, 102, 250);
+    font-size: 16px;
+}
+.news .news-right-item {
+    min-height: 130px;
+}
+.breadcrumb {
+    background-color: white;
+    padding-left: 0px;
+    border-bottom: 1px dashed #cacaca;
+}
+#map {
+        width: 100%;
+        height: 500px;
+        margin-top: 20px;
+      }
