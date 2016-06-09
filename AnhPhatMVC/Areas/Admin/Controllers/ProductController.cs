@@ -115,33 +115,32 @@ namespace AnhPhatMVC.Areas.Admin.Controllers
             ViewBag.ListItem = items;
             try
             {
+                String _image = data.products.FirstOrDefault(x => x.id == item.id).image;
                 if (image != null)
                 {
-                    string id = Request.Form["ListItem"].ToString();
+                   
                     //Save image to file
                     var filename = Guid.NewGuid().ToString() + image.FileName;
                     var filePathOriginal = Server.MapPath("/Content/images");
 
                     string savedFileName = Path.Combine(filePathOriginal, filename);
                     image.SaveAs(savedFileName);
-                    product _item = data.products.FirstOrDefault(x => x.id == item.id);
-                    _item.image = "/Content/images/" + filename;
-                    _item.caption_vn = item.caption_vn;
-                    _item.caption_en = item.caption_en;
-                    _item.describe_vn = item.describe_vn;
-                    _item.describe_en = item.describe_en;
-                    _item.detail_vn = item.detail_vn;
-                    _item.detail_en = item.detail_en;
-                    _item.group_id = int.Parse(id);
-                    _item.highlights = item.highlights;
-                    _item.link = new ManagerController().convertToUnSign(item.caption_vn);
-                    data.SubmitChanges();
-                    return RedirectToAction("Product", "Product");
+                    _image = "/Content/images/" + filename;
                 }
-                else
-                {
-                    return View();
-                }
+                string id = Request.Form["ListItem"].ToString();
+                product _item = data.products.FirstOrDefault(x => x.id == item.id);
+                _item.image = _image;
+                _item.caption_vn = item.caption_vn;
+                _item.caption_en = item.caption_en;
+                _item.describe_vn = item.describe_vn;
+                _item.describe_en = item.describe_en;
+                _item.detail_vn = item.detail_vn;
+                _item.detail_en = item.detail_en;
+                _item.group_id = int.Parse(id);
+                _item.highlights = item.highlights;
+                _item.link = new ManagerController().convertToUnSign(item.caption_vn);
+                data.SubmitChanges();
+                return RedirectToAction("Product", "Product");
 
             }
             catch

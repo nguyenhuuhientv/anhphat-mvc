@@ -73,6 +73,7 @@ namespace AnhPhatMVC.Areas.Admin.Controllers
         {
             try
             {
+                String _image = data.new_news.FirstOrDefault(x => x.id == item.id).image;
                 if (image != null)
                 {
 
@@ -81,16 +82,14 @@ namespace AnhPhatMVC.Areas.Admin.Controllers
                     var filePathOriginal = Server.MapPath("/Content/images");
                     string savedFileName = Path.Combine(filePathOriginal, filename);
                     image.SaveAs(savedFileName);
-                    brand _item = data.brands.FirstOrDefault(x => x.id == item.id);
-                    _item.image = "/Content/images/" + filename;
-                    _item.link_action = item.link_action;
-                    data.SubmitChanges();
-                    return RedirectToAction("Brand", "Brand");
+                    _image = "/Content/images/" + filename;
                 }
-                else
-                {
-                    return View();
-                }
+                brand _item = data.brands.FirstOrDefault(x => x.id == item.id);
+                _item.image = _image;
+                _item.link_action = item.link_action;
+                data.SubmitChanges();
+                return RedirectToAction("Brand", "Brand");
+
 
             }
             catch

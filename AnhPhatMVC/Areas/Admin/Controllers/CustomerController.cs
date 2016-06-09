@@ -74,6 +74,7 @@ namespace AnhPhatMVC.Areas.Admin.Controllers
         {
             try
             {
+                String _image = data.customers.FirstOrDefault(x => x.id == item.id).image;
                 if (image != null)
                 {
 
@@ -82,18 +83,15 @@ namespace AnhPhatMVC.Areas.Admin.Controllers
                     var filePathOriginal = Server.MapPath("/Content/images");
                     string savedFileName = Path.Combine(filePathOriginal, filename);
                     image.SaveAs(savedFileName);
-                    customer _item = data.customers.FirstOrDefault(x => x.id == item.id);
-                    _item.image = "/Content/images/" + filename;
-                    _item.name = item.name;
-                    _item.describe_vn = item.describe_vn;
-                    _item.describe_en = item.describe_en;
-                    data.SubmitChanges();
-                    return RedirectToAction("Customer", "Customer");
+                    _image = "/Content/images/" + filename;
                 }
-                else
-                {
-                    return View();
-                }
+                customer _item = data.customers.FirstOrDefault(x => x.id == item.id);
+                _item.image = _image;
+                _item.name = item.name;
+                _item.describe_vn = item.describe_vn;
+                _item.describe_en = item.describe_en;
+                data.SubmitChanges();
+                return RedirectToAction("Customer", "Customer");
 
             }
             catch
