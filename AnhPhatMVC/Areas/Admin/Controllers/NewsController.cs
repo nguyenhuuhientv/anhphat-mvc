@@ -82,6 +82,7 @@ namespace AnhPhatMVC.Areas.Admin.Controllers
         {
             try
             {
+                String _image = data.new_news.FirstOrDefault(x => x.id == item.id).image;
                 if (image != null)
                 {
 
@@ -90,6 +91,8 @@ namespace AnhPhatMVC.Areas.Admin.Controllers
                     var filePathOriginal = Server.MapPath("/Content/images");
                     string savedFileName = Path.Combine(filePathOriginal, filename);
                     image.SaveAs(savedFileName);
+                    _image = "/Content/images/" + filename;
+                }
                     new_new _newt = data.new_news.FirstOrDefault(x => x.id == item.id);
                     _newt.caption_vn = item.caption_vn;
                     _newt.caption_en = item.caption_en;
@@ -100,14 +103,9 @@ namespace AnhPhatMVC.Areas.Admin.Controllers
                     _newt.describe_en = item.describe_en;
                     _newt.created_at = item.created_at;
                     _newt.link = new ManagerController().convertToUnSign(item.caption_vn);
-                    _newt.image = "/Content/images/" + filename;
+                    _newt.image = _image;
                     data.SubmitChanges();
-                    return RedirectToAction("New", "News");
-                }
-                else
-                {
-                    return View();
-                }
+                    return RedirectToAction("New", "News");               
 
             }
             catch
