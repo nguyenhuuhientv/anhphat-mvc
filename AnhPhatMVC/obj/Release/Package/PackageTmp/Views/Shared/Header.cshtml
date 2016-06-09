@@ -1,0 +1,86 @@
+﻿@model dynamic
+<!-- Static navbar top -->
+<div class="header">
+    <div class="container">
+        <div class="row">
+            <ul class="nav navbar-nav col-md-6 col-xs-12">
+                <!--<li><a href="#">Home</a></li>-->
+                <li class="col-xs-12 col-md-6"><a href="#about"><i class="fa fa-envelope-o" aria-hidden="true"></i> @ViewBag.Config_Email </a></li>
+                <li class="col-xs-12 col-md-6"><a href="#about"><i class="fa fa-phone" aria-hidden="true"></i> @ViewBag.Config_Phone </a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right col-md-6 pull-right col-xs-12">
+                <li class="col-md-1 col-xs-3 text-center pull-right">
+                    <a href="@Url.Action("Change", "Language", new { LanguageAbbrevation = "en" }, null)">
+                        <img src='@Url.Content("~/Content/images/en.png")' width="25" />
+                    </a>
+                </li>
+                <li class="col-md-1 col-xs-3 text-center pull-right">
+                    <a href="@Url.Action("Change", "Language", new { LanguageAbbrevation = "vi" }, null)">
+                        <img src='@Url.Content("~/Content/images/vi.png")' width="25" />
+                    </a>
+                </li>
+                <li class="col-md-1 col-xs-3 text-center pull-right"><a href="@ViewBag.Config_Facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                <li class="col-md-1 col-xs-3 text-center pull-right"><a href="@ViewBag.Config_Gplus"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+                <li class="col-md-1 col-xs-3 text-center pull-right"><a href="@ViewBag.Config_Twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                <li class="col-md-1 col-xs-3 text-center pull-right"><a href="@ViewBag.Config_Youtube"><i class="fa fa-youtube" aria-hidden="true"></i></a></li>
+            </ul>
+        </div><!--/.nav-collapse -->
+    </div>
+</div>
+<!-- Static menu -->
+<nav class="navbar navbar-default navbar-static-top navbar-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">
+                <img style="width:70px" src="@ViewBag.Config_Logo" />
+            </a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="active text-center"><a href="/"><span class="fa fa-home fa-2x icon"></span>@(AnhPhatMVC.Resources.Main.TRANGCHU)</a></li>
+                <li><a href="/gioi-thieu"><span class="fa fa-home fa-2x icon"></span>@(AnhPhatMVC.Resources.Main.GIOITHIEU)</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                        <span class="fa fa-rss fa-2x icon"></span>@(AnhPhatMVC.Resources.Main.SANPHAM)
+                    </a>
+                    @if (Model.Groups != null)
+                    {
+                        <ul class="dropdown-menu">
+                            @foreach (var item in Model.Groups)
+                            {
+                                <li><a href="/danh-sach-san-pham/@item.link">@item.caption</a></li>
+                            }
+                        </ul>
+                    }   
+                        
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                        <span class="fa fa-rss fa-2x icon"></span>@(AnhPhatMVC.Resources.Main.DICHVU)
+                    </a>
+                    @if (Model.Services != null)
+                    {
+                        <ul class="dropdown-menu">
+                            @foreach (var item in Model.Services)
+                            {
+                                <li><a href="/dich-vu/@item.link">@item.caption</a></li>
+                            }
+                        </ul>
+                    }
+
+                </li>
+
+                <li><a href="/tin-tuc"><span class="fa fa-shopping-bag fa-2x icon"></span>@(AnhPhatMVC.Resources.Main.TINTUC)</a></li>
+
+                <li><a href="/khuyen-mai"><span class="fa fa-percent fa-2x icon"></span>@(AnhPhatMVC.Resources.Main.KHUYENMAI)</a></li>
+                <li><a href="/lien-he"><span class="fa fa-info-circle fa-2x icon"></span>@(AnhPhatMVC.Resources.Main.LIENHE)</a></li>
+            </ul>
+        </div><!--/.nav-collapse -->
+    </div>
+</nav>

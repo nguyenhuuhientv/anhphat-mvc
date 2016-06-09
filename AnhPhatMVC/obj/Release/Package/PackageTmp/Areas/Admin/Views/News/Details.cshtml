@@ -1,0 +1,90 @@
+﻿@model AnhPhatMVC.Context.new_new
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutPageAdmin.cshtml";
+}
+
+<h2>Chi tiết</h2>
+
+<div>
+  
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+           <a>Nhóm TT - KM</a>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.group_new)
+        </dd>
+
+        <dt>
+            <a>Tiêu đề tiếng việt</a>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.caption_vn)
+        </dd>
+
+        <dt>
+            <a>Tiêu đề tiếng anh</a>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.caption_en)
+        </dd>
+        <dt>
+            <a>Mô tả tiếng việt</a>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.describe_vn)
+        </dd>
+
+        <dt>
+           <a>Mô tả tiếng anh</a>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.describe_en)
+        </dd>
+
+        <dt>
+           <a>Chi tiết tiếng việt</a>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.detail_vn)
+        </dd>
+
+        <dt>
+            <a>Chi tiết tiếng anh</a>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.detail_en)
+        </dd>             
+        <br />
+        <dt>
+            <a>Ảnh</a>
+        </dt>
+
+        <dd>
+            <img width="50%" src="@Model.image" alt="" />
+        </dd>
+        <br />
+        <dt>
+            <a>Ngày tạo</a>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.created_at)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "New")
+</p>

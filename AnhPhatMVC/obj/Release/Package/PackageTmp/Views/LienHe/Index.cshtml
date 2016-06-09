@@ -1,0 +1,33 @@
+﻿@model AnhPhatMVC.Context.config
+
+@{
+    ViewBag.Title = @AnhPhatMVC.Resources.Main.LIENHE;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<ol class="breadcrumb" style="margin-bottom: 5px;">
+    <li><a href="@Url.RouteUrl("TrangChu")"><i class="fa fa-home"></i> @AnhPhatMVC.Resources.Main.TRANGCHU</a></li>
+    <li class="active">@AnhPhatMVC.Resources.Main.LIENHE</li>
+</ol>
+
+<div class="content row">
+    <div class="col-md-12">
+        @Html.DisplayFor(model => model.value)
+    </div>
+    <div class="col-md-12">
+        <div id="map"></div>
+    </div>
+    
+
+    <script>
+      function initMap() {
+        var mapDiv = document.getElementById('map');
+        var map = new google.maps.Map(mapDiv, {
+          center: {lat: 44.540, lng: -78.546},
+          zoom: 8
+        });
+      }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?callback=initMap"
+            async defer></script>
+</div>

@@ -1,0 +1,148 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+@model dynamic
+
+<div class="content">
+    @if (Model.Slides != null && Model.Slides.Count > 0)
+            {
+        <ul class="bxslider">
+            @foreach (var item in Model.Slides)
+            {
+                <li><img src="@item.image" class="image-responsive" /></li>
+            }
+        </ul>
+    }
+    <div class="box">
+        <div class="title">
+            <h3>@(AnhPhatMVC.Resources.Main.THUONGHIEU)</h3>
+        </div>
+        <div class="detail">
+            @if (Model.Partners != null && Model.Partners.Count > 0)
+            {
+                <ul class="partner">
+                    @foreach (var item in Model.Partners)
+                    {
+                        <li><a href="@item.link_action" target="_blank"><img src="@item.image" class="image-responsive" /></a></li>
+                    }
+                </ul>
+            }
+        </div>
+    </div>
+    <div class="box product-hot">
+        <div class="title">
+            <h3>@(AnhPhatMVC.Resources.Main.SANPHAMNOIBAT)</h3>
+        </div>
+        <div class="detail">
+            <div class="row">
+                @if (Model.ProductHot != null && Model.ProductHot.Count > 0)
+                {
+                    foreach (var item in Model.ProductHot)
+                    {
+                        <div class="col-md-4 text-center col-sm-4 product-box">
+                            <div class="row">
+                                <a href="/chi-tiet-san-pham/@item.link" class="item col-md-12"><img src="@item.image" class="image-responsive" /></a>
+                                <h3 class="col-md-12 text-left"><a href="/chi-tiet-san-pham/@item.link">@item.caption</a></h3>
+                                <div class="col-md-6 text-left category-name">
+                                    @item.group_caption
+                                </div>
+                                <div class="col-md-6 text-right read-more">
+                                    <a href="/chi-tiet-san-pham/@item.link">Xem thêm <i class="fa fa-angle-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                }
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+    <div class="box service">
+        <div class="title">
+            <h3>@(AnhPhatMVC.Resources.Main.DICHVU)</h3>
+        </div>
+        <div class="detail row">
+            @if (Model.Services != null && Model.Services.Count > 0)
+            {
+                foreach (var item in Model.Services)
+                {
+                    <div class="item col-md-4">
+                        <!--<a href="#">-->
+                        <div class="row">
+                            <div class="col-md-5 image-intro text-right col-xs-5">
+                                <img src="@item.image" class="image-responsive">
+                            </div>
+                            <div class="col-md-7 description  col-xs-7">
+                                <h3><a href="/dich-vu/@item.link">@item.caption</a></h3>
+                                <p>@item.describe</p>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                        <!--</a>-->
+                    </div>
+                }
+            }
+            <div class="clearfix"></div>
+        </div>
+    </div>
+    <div class="box news">
+        <div class="title">
+            <h3>@(AnhPhatMVC.Resources.Main.TINTUC)</h3>
+        </div>
+        <div class="detail">
+            <div class="row">
+                <div class="col-md-5">
+                    @if (Model.News != null && Model.News.Count > 0)
+                    {
+                        int i = 0;
+                        foreach (var item in Model.News)
+                        {
+                            <div class="row">
+                                <a href="/tin-tuc/@item.link" class="item col-md-12 col-xs-12">
+                                    <img src="@item.image" class="image-responsive" />
+                                </a>
+                                <h3 class="col-md-12 text-left"><a href="/tin-tuc/@item.link">@item.caption</a></h3>
+                                <div class="col-md-12 text-left info">
+                                    @item.describe
+                                </div>
+                            </div>
+                            i++;
+                            if (i == 1)
+                            {
+                                break;
+                            }
+                        }
+                    }
+                </div>
+                <div class="col-md-7">
+                    <!--<div class="row">-->
+                    @if (Model.News != null && Model.News.Count > 0)
+                    {
+                        int i = 0;
+                        foreach (var item in Model.News)
+                        {
+                            i++;
+                            if (i == 1)
+                            {
+                                continue;
+                            }
+                            <div class="news-right-item row">
+                                <a href="/tin-tuc/@item.link" class="item col-md-4 col-xs-12">
+                                    <img src="@item.image" class="image-responsive" />
+                                </a>
+                                <div class="description col-md-8">
+                                    <h3 class="col-md-12 text-left"><a href="/tin-tuc/@item.link">@item.caption</a></h3>
+                                    <div class="col-md-12 text-left info">
+                                        @item.describe
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    }
+                    <!--</div>-->
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+</div>

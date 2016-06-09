@@ -44,7 +44,7 @@ namespace AnhPhatMVC.Controllers
         public ActionResult Header()
         {
             ViewBag.Config_Logo = data.configs.FirstOrDefault(x => x.key == "logo").value;
-
+            var a = data.configs.ToList();
             ViewBag.Config_Email = data.configs.FirstOrDefault(x => x.key == "email").value;
             ViewBag.Config_Phone = data.configs.FirstOrDefault(x => x.key == "phone").value;
 
