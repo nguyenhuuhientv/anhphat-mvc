@@ -132,6 +132,9 @@
   <data name="KETNOIVOICHUNGTOI" xml:space="preserve">
     <value>Kết Nối Với Chúng Tôi</value>
   </data>
+  <data name="KHACHHANG" xml:space="preserve">
+    <value>Khách Hàng</value>
+  </data>
   <data name="KHUYENMAI" xml:space="preserve">
     <value>Khuyến Mãi</value>
   </data>

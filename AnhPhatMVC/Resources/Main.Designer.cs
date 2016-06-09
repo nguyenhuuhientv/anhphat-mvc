@@ -106,6 +106,15 @@ namespace AnhPhatMVC.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Khách Hàng.
+        /// </summary>
+        public static string KHACHHANG {
+            get {
+                return ResourceManager.GetString("KHACHHANG", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Khuyến Mãi.
         /// </summary>
         public static string KHUYENMAI {

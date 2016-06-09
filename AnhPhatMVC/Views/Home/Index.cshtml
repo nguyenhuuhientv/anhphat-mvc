@@ -29,6 +29,7 @@
             }
         </div>
     </div>
+    
     <div class="box product-hot">
         <div class="title">
             <h3>@(AnhPhatMVC.Resources.Main.SANPHAMNOIBAT)</h3>
@@ -85,6 +86,36 @@
             <div class="clearfix"></div>
         </div>
     </div>
+
+    <div class="box service">
+        <div class="title">
+            <h3>@(AnhPhatMVC.Resources.Main.KHACHHANG)</h3>
+        </div>
+        <div class="detail row">
+            @if (Model.Customers != null && Model.Customers.Count > 0)
+            {
+                foreach (var item in Model.Customers)
+                {
+                    <div class="item col-md-4">
+                        <!--<a href="#">-->
+                        <div class="row">
+                            <div class="col-md-5 image-intro text-right col-xs-5">
+                                <img src="@item.image" class="image-responsive">
+                            </div>
+                            <div class="col-md-7 description  col-xs-7">
+                                <h3><a href="#">@item.name</a></h3>
+                                <p>@item.describe</p>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                        <!--</a>-->
+                    </div>
+                }
+            }
+            <div class="clearfix"></div>
+        </div>
+    </div>
+
     <div class="box news">
         <div class="title">
             <h3>@(AnhPhatMVC.Resources.Main.TINTUC)</h3>

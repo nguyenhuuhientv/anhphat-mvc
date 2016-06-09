@@ -33,6 +33,7 @@ namespace AnhPhatMVC.Controllers
         {
 
             ViewBag.Config_Description = data.configs.FirstOrDefault(x=>x.key== "description").value;
+            ViewBag.Config_Title = data.configs.FirstOrDefault(x => x.key == "title").value;
             ViewBag.Config_Facebook = data.configs.FirstOrDefault(x => x.key == "facebook").value;
 
             dynamic modelDynamic = new ExpandoObject();

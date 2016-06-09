@@ -36,8 +36,15 @@ namespace AnhPhatMVC
 
             routes.MapRoute(
                 name: "SanPham",
-                url: "danh-sach-san-pham/{link}",
+                url: "tat-ca-san-pham",
                 defaults: new { controller = "SanPham", action = "Index", link = UrlParameter.Optional },
+                namespaces: new[] { "AnhPhatMVC.Controllers" }
+            );
+
+            routes.MapRoute(
+                name: "SanPhamTheoGroup",
+                url: "danh-sach-san-pham/{link}",
+                defaults: new { controller = "SanPham", action = "Group", link = UrlParameter.Optional },
                 namespaces: new[] { "AnhPhatMVC.Controllers" }
             );
 

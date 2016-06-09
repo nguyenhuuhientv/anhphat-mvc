@@ -332,12 +332,12 @@ body {
     padding-bottom:50px;
 }
 
-.news p {
+.news p, .products p {
     font-size: 12px;
     font-style: italic;
 }
 
-.news .image-intro {
+.content .image-intro {
     margin: 20px 0;
 }
 
@@ -348,7 +348,7 @@ body {
 .news .detail {
     text-align: justify;
 }
-.news h4, .services h4 {
+.news h4, .services h4, .products h4 {
     color: rgb(9, 102, 250);
     font-size: 16px;
 }
@@ -365,3 +365,6 @@ body {
         height: 500px;
         margin-top: 20px;
       }
+.products .product-box {
+       margin-top: 40px;
+}
