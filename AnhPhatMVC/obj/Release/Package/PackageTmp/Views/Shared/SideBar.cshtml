@@ -14,7 +14,7 @@
                 @foreach (var item in Model.Groups)
                 {
                     <li class="item">
-                        <a href="#"><i class="fa fa-angle-left"></i>@item.caption</a>
+                        <a href="/danh-sach-san-pham/@item.link"><i class="fa fa-angle-left"></i>@item.caption</a>
                     </li>
                 }
                 
@@ -25,7 +25,7 @@
     <div class="clearfix"></div>
 </div>
 <div class="pr text-center">
-    @*<iframe style="width: 100%; height: auto" src="@ViewBag.YoutubeLink" frameborder="0" allowfullscreen></iframe>*@
+    <iframe style="width: 100%; height: auto" src="@ViewBag.YoutubeLink" frameborder="0" allowfullscreen></iframe>
 </div>
 <div class="panel panel-default panel-categories panel-box panel-new-product">
     <div class="panel-heading">
@@ -41,7 +41,7 @@
                 @foreach (var item in Model.Products)
                 {
                     <li class="item">
-                        <a href="#">
+                        <a href="/san-pham/@item.link">
                             <div class="col-md-5 image-intro text-center col-xs-5">
                                 <img src="@item.image" class="image-responsive">
                             </div>

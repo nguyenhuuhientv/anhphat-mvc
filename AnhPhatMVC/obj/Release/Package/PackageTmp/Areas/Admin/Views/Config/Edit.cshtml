@@ -32,7 +32,13 @@
                   {
                     <input type="file" id="slider" name="image" />
                   }
-                  else { 
+                  else if (Model.key.ToString().Equals("title") || Model.key.ToString().Equals("skype")
+                          || Model.key.ToString().Equals("phone") || Model.key.ToString().Equals("gplus")
+                          || Model.key.ToString().Equals("facebook") || Model.key.ToString().Equals("email"))
+                      {
+                        @Html.EditorFor(model => model.value, new { htmlAttributes = new { @class = "form-control" } })
+                      }
+                      else { 
                        @Html.TextAreaFor(model => model.value, new { @id = "ckeContent2" })
                     <script type="text/javascript">
                     CKEDITOR.replace("ckeContent2");

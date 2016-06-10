@@ -63,7 +63,7 @@ namespace AnhPhatMVC.Areas.Admin.Controllers
             sb = sb.Replace('đ', 'd');
             return (sb.ToString().Normalize(NormalizationForm.FormD)).Replace(" ", "-").Replace(".", "-").Replace("~", "-").Replace("!", "-").Replace("@", "-")
                 .Replace("#", "-").Replace("$", "-").Replace("%", "-").Replace("^", "-").Replace("&", "-").Replace("*", "-").Replace("(", "-").Replace(")", "-").Replace("_", "-").Replace("+", "-").
-                Replace("=", "-").Replace("/", "-").ToLower(); 
+                Replace("=", "-").Replace("/", "-").Replace("?", "-").ToLower(); 
         }
     }
 }

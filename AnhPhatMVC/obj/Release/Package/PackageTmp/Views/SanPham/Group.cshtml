@@ -1,0 +1,33 @@
+﻿
+@{
+    ViewBag.Title = "A";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<ol class="breadcrumb" style="margin-bottom: 5px;">
+    <li><a href="@Url.RouteUrl("TrangChu")"><i class="fa fa-home"></i> @AnhPhatMVC.Resources.Main.TRANGCHU</a></li>
+    <li><a href="@Url.RouteUrl("SanPham")">@AnhPhatMVC.Resources.Main.SANPHAM</a></li>
+    <li class="active">a</li>
+</ol>
+
+<div class="content row products">
+    @if (Model.Products != null && Model.Products.Count > 0)
+    {
+        foreach (var item in Model.Products)
+        {
+            <div class="col-md-4 text-center col-sm-4 product-box">
+                <div class="row">
+                    <a href="/san-pham/@item.link" class="item col-md-12"><img src="@item.image" class="image-responsive" /></a>
+                    <h3 class="col-md-12 text-left"><a href="/san-pham/@item.link">@item.caption</a></h3>
+                    <div class="col-md-6 text-left category-name">
+                        @item.group_caption
+                    </div>
+                    <div class="col-md-6 text-right read-more">
+                        <a href="/san-pham/@item.link">Xem thêm <i class="fa fa-angle-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        }
+    }
+
+</div>

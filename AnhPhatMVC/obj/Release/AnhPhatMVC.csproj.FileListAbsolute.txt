@@ -76,3 +76,4 @@ D:\Data\Projects\anhphat-mvc\AnhPhatMVC\obj\Release\AnhPhatMVC.Resources.Main.en
 D:\Data\Projects\anhphat-mvc\AnhPhatMVC\obj\Release\AnhPhatMVC.csproj.GenerateResource.Cache
 D:\Data\Projects\anhphat-mvc\AnhPhatMVC\obj\Release\AnhPhatMVC.dll
 D:\Data\Projects\anhphat-mvc\AnhPhatMVC\obj\Release\AnhPhatMVC.pdb
+D:\C#\AnhPhat\anhphat-mvc\AnhPhatMVC\obj\Release\AnhPhatMVC.csprojResolveAssemblyReference.cache
