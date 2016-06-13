@@ -6,7 +6,7 @@
 
 <ol class="breadcrumb" style="margin-bottom: 5px;">
     <li><a href="@Url.RouteUrl("TrangChu")"><i class="fa fa-home"></i> @AnhPhatMVC.Resources.Main.TRANGCHU</a></li>
-    <li><a href="@Url.RouteUrl("TinTuc")">@AnhPhatMVC.Resources.Main.DICHVU</a></li>
+    <li><a href="#">@AnhPhatMVC.Resources.Main.DICHVU</a></li>
     <li class="active">@Model.caption</li>
 </ol>
 
@@ -17,7 +17,7 @@
             <img src="@Model.image" />
         </div>
         <div class="detail">
-            @Model.detail
+               @Html.Raw(Model.detail)
         </div>
     </div>
 </div>

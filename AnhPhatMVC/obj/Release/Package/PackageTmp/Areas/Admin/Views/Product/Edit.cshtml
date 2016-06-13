@@ -1,0 +1,109 @@
+﻿@model AnhPhatMVC.Context.product
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutPageAdmin.cshtml";
+}
+
+<h2>Chỉnh sửa</h2>
+
+@using (Html.BeginForm("Edit", "Product", null, FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+    
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.id)
+
+        <div class="form-group">
+            <p class="control-label col-md-2"><a>Tên tiếng việt</a></p>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.caption_vn, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.caption_vn, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <p class="control-label col-md-2"><a>Tên tiếng anh</a></p>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.caption_en, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.caption_en, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <p class="control-label col-md-2"><a>Mô tả tiếng việt</a></p>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.describe_vn, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.describe_vn, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <p class="control-label col-md-2"><a>Mô tả tiếng anh</a></p>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.describe_en, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.describe_en, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <p class="control-label col-md-2"><a>Ảnh</a></p>
+            <div class="col-md-10">
+                <input type="file" id="slider" name="image" />
+                @Html.ValidationMessageFor(model => model.image, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            <p class="control-label col-md-2"><a>Chi tiết tiếng việt</a></p>
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.detail_vn, new { @id = "ckeContent" })
+                <script type="text/javascript">
+                     CKEDITOR.replace("ckeContent");
+                </script>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <p class="control-label col-md-2"><a>Chi tiết tiếng anh</a></p>
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.detail_en, new { @id = "ckeContent2" })
+                <script type="text/javascript">
+                    CKEDITOR.replace("ckeContent2");
+                </script>
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <p class="control-label col-md-2"><a>Nhóm sản phẩm</a></p>
+            <div class="col-md-10">
+                @Html.DropDownList("ListItem", (SelectList)ViewBag.id, "--Select One--", new
+           { //anonymous typess
+               @class = "myCssClass",
+               onchange = "someFunction();"
+           })
+
+                @Html.ValidationMessageFor(model => model.group_id, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            <p class="control-label col-md-2"><a>Sản phẩm nổi bật</a></p>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.highlights)
+                @Html.ValidationMessageFor(model => model.highlights, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Product")
+</div>

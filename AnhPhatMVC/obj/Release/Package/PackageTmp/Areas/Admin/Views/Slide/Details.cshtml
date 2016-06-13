@@ -1,0 +1,28 @@
+﻿@model AnhPhatMVC.Context.slide
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutPageAdmin.cshtml";
+}
+
+<h2>Chi tiết</h2>
+
+<div>
+    
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+           <a>Ảnh</a>
+        </dt>
+
+        <dd>           
+            <img width="60%" src="@Model.image" alt="" />
+
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Slide")
+</p>

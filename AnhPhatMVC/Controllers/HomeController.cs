@@ -19,8 +19,10 @@ namespace AnhPhatMVC.Controllers
             listModel.ProductHot = data.sp_Get_Product_Highlight(this.getLanguageCode(), 6).ToList();
             listModel.Services = data.sp_Get_Service(this.getLanguageCode()).ToList();
 
-            listModel.NewFirst = data.sp_Get_New_Limit(this.getLanguageCode(), true, 1).FirstOrDefault();
-            listModel.News = data.sp_Get_New_Limit(this.getLanguageCode(), true, 3).ToList();
+            listModel.Customers = data.sp_Get_Customer(this.getLanguageCode()).ToList();
+
+            listModel.NewFirst = data.sp_Get_New_Limit(this.getLanguageCode(), false, 1).FirstOrDefault();
+            listModel.News = data.sp_Get_New_Limit(this.getLanguageCode(), false, 3).ToList();
             return View(listModel);
         }
 

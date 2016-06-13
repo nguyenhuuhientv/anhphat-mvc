@@ -1,0 +1,43 @@
+﻿@model IEnumerable<AnhPhatMVC.Context.brand>
+
+@{
+    ViewBag.Title = "Brand";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutPageAdmin.cshtml";
+}
+
+<h2>Thương hiệu</h2>
+
+<p>
+    @Html.ActionLink("Tạo mới", "Create")
+</p>
+<table id="example1" class="table table-bordered table-striped dataTable" aria-describedby="example1_info">
+    <thead>
+        <tr>
+            <th>
+                <a>Ảnh</a>
+            </th>
+            <th>
+                <a>Link action</a>
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody role="alert" aria-live="polite" aria-relevant="all">
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.image)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.link_action)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.id })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

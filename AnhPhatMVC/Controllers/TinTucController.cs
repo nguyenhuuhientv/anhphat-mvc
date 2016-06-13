@@ -13,14 +13,14 @@ namespace AnhPhatMVC.Controllers
         public ActionResult Index()
         {
             dynamic modelDynamic = new ExpandoObject();
-            modelDynamic.News = data.sp_Get_New(this.getLanguageCode(), true).ToList();
+            modelDynamic.News = data.sp_Get_New(this.getLanguageCode(), false).ToList();
             return View(modelDynamic);
         }
 
         public new ActionResult View(string link)
         {
             dynamic Model = new Object();
-            Model = data.sp_Get_New_Item(this.getLanguageCode(), true, link).FirstOrDefault();
+            Model = data.sp_Get_New_Item(this.getLanguageCode(), false, link).FirstOrDefault();
             return View(Model);
         }
     }

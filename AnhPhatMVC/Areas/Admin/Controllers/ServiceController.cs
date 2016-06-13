@@ -80,6 +80,7 @@ namespace AnhPhatMVC.Areas.Admin.Controllers
         {
             try
             {
+                String _image = data.services.FirstOrDefault(x => x.id == item.id).image;
                 if (image != null)
                 {
 
@@ -89,22 +90,20 @@ namespace AnhPhatMVC.Areas.Admin.Controllers
 
                     string savedFileName = Path.Combine(filePathOriginal, filename);
                     image.SaveAs(savedFileName);
-                    service _item = data.services.FirstOrDefault(x=>x.id == item.id);
-                    _item.image = "/Content/images/" + filename;
-                    _item.caption_vn = item.caption_vn;
-                    _item.caption_en = item.caption_en;
-                    _item.detail_vn = item.detail_vn;
-                    _item.detail_en = item.detail_en;
-                    _item.describe_vn = item.describe_vn;
-                    _item.describe_en = item.describe_en;
-                    _item.link = new ManagerController().convertToUnSign(item.caption_vn);
-                    data.SubmitChanges();
-                    return RedirectToAction("Service", "Service");
+                    _image = "/Content/images/" + filename;
                 }
-                else
-                {
-                    return View();
-                }
+
+                service _item = data.services.FirstOrDefault(x => x.id == item.id);
+                _item.image = _image;
+                _item.caption_vn = item.caption_vn;
+                _item.caption_en = item.caption_en;
+                _item.detail_vn = item.detail_vn;
+                _item.detail_en = item.detail_en;
+                _item.describe_vn = item.describe_vn;
+                _item.describe_en = item.describe_en;
+                _item.link = new ManagerController().convertToUnSign(item.caption_vn);
+                data.SubmitChanges();
+                return RedirectToAction("Service", "Service");
 
             }
             catch

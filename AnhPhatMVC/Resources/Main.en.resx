@@ -132,6 +132,9 @@
   <data name="KETNOIVOICHUNGTOI" xml:space="preserve">
     <value>Connect with Us</value>
   </data>
+  <data name="KHACHHANG" xml:space="preserve">
+    <value>Customer</value>
+  </data>
   <data name="KHUYENMAI" xml:space="preserve">
     <value>Promotion</value>
   </data>

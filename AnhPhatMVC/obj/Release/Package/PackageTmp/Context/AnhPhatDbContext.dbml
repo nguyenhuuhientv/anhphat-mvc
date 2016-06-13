@@ -1,0 +1,272 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="anhb4e20_anhphat" Class="AnhPhatDbContextDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=112.78.2.78;Initial Catalog=anhb4e20_anhphat;User ID=anhb4e20_anhphat" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="anhb4e20_anhphatConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.config" Member="configs">
+    <Type Name="config">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="[key]" Member="key" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="value" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.brand" Member="brands">
+    <Type Name="brand">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="image" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="link_action" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.customer" Member="customers">
+    <Type Name="customer">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="name" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="image" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="describe_vn" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="describe_en" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.group_product" Member="group_products">
+    <Type Name="group_product">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="caption_vn" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="caption_en" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="orderby" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="link" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.new_news" Member="new_news">
+    <Type Name="new_new">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="group_new" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="caption_vn" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="caption_en" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="detail_vn" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="detail_en" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="describe_vn" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="describe_en" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="image" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="created_at" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="link" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.product" Member="products">
+    <Type Name="product">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="caption_vn" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="caption_en" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="image" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="describe_vn" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="describe_en" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="detail_vn" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="detail_en" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="group_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="highlights" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="link" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.service" Member="services">
+    <Type Name="service">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="caption_vn" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="caption_en" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="describe_vn" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="describe_en" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="detail_vn" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="detail_en" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="image" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="link" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.slide" Member="slides">
+    <Type Name="slide">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="image" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.users" Member="users">
+    <Type Name="user">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="username" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="password" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="email" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="birthday" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="role" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="created_at" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="updated_at" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Function Name="anhb4e20_anhphat.sp_Get_Product_List_Group" Method="sp_Get_Product_List_Group">
+    <Parameter Name="temp" Type="System.String" DbType="NVarChar(10)" />
+    <Parameter Name="link" Type="System.String" DbType="NVarChar(500)" />
+    <ElementType Name="sp_Get_Product_List_GroupResult">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="caption" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="image" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="describe" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="detail" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="group_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="highlights" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="link" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="group_caption" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_DangNhap" Method="sp_DangNhap">
+    <Parameter Name="id" Type="System.String" DbType="NVarChar(250)" />
+    <Parameter Name="pass" Type="System.String" DbType="NVarChar(250)" />
+    <ElementType Name="sp_DangNhapResult">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="username" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="password" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="email" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="birthday" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="role" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="created_at" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="updated_at" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_Get_Customer" Method="sp_Get_Customer">
+    <Parameter Name="temp" Type="System.String" DbType="NVarChar(10)" />
+    <ElementType Name="sp_Get_CustomerResult">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="name" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="image" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="describe" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_Get_Group_Product" Method="sp_Get_Group_Product">
+    <Parameter Name="temp" Type="System.String" DbType="NVarChar(10)" />
+    <ElementType Name="sp_Get_Group_ProductResult">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="caption" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="orderby" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="link" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_Get_New" Method="sp_Get_New">
+    <Parameter Name="temp" Type="System.String" DbType="NVarChar(10)" />
+    <Parameter Name="group" Type="System.Boolean" DbType="Bit" />
+    <ElementType Name="sp_Get_NewResult">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="group_new" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="caption" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="detail" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="describe" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="image" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="created_at" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="link" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_Get_New_Item" Method="sp_Get_New_Item">
+    <Parameter Name="temp" Type="System.String" DbType="NVarChar(10)" />
+    <Parameter Name="group" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="link" Type="System.String" DbType="NVarChar(500)" />
+    <ElementType Name="sp_Get_New_ItemResult">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="group_new" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="caption" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="detail" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="describe" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="image" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="created_at" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="link" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_Get_New_Limit" Method="sp_Get_New_Limit">
+    <Parameter Name="temp" Type="System.String" DbType="NVarChar(10)" />
+    <Parameter Name="group" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="limit" Type="System.Int32" DbType="Int" />
+    <ElementType Name="sp_Get_New_LimitResult">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="group_new" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="caption" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="detail" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="describe" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="image" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="created_at" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="link" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_Get_Product" Method="sp_Get_Product">
+    <Parameter Name="temp" Type="System.String" DbType="NVarChar(10)" />
+    <ElementType Name="sp_Get_ProductResult">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="caption" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="image" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="describe" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="detail" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="group_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="highlights" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="link" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="group_caption" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_Get_Product_Highlight" Method="sp_Get_Product_Highlight">
+    <Parameter Name="temp" Type="System.String" DbType="NVarChar(10)" />
+    <Parameter Name="limit" Type="System.Int32" DbType="Int" />
+    <ElementType Name="sp_Get_Product_HighlightResult">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="caption" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="image" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="describe" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="detail" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="group_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="highlights" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="link" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="group_caption" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_Get_Product_Item" Method="sp_Get_Product_Item">
+    <Parameter Name="temp" Type="System.String" DbType="NVarChar(10)" />
+    <Parameter Name="link" Type="System.String" DbType="NVarChar(500)" />
+    <ElementType Name="sp_Get_Product_ItemResult">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="caption" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="image" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="describe" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="detail" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="group_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="highlights" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="link" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="group_caption" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="group_link" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_Get_Product_New" Method="sp_Get_Product_New">
+    <Parameter Name="temp" Type="System.String" DbType="NVarChar(10)" />
+    <Parameter Name="limit" Type="System.Int32" DbType="Int" />
+    <ElementType Name="sp_Get_Product_NewResult">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="caption" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="image" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="describe" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="detail" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="group_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="highlights" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="link" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="group_caption" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_Get_Service" Method="sp_Get_Service">
+    <Parameter Name="temp" Type="System.String" DbType="NVarChar(10)" />
+    <ElementType Name="sp_Get_ServiceResult">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="caption" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="describe" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="detail" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="detail_en" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="image" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="link" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_Get_Service_Item" Method="sp_Get_Service_Item">
+    <Parameter Name="temp" Type="System.String" DbType="NVarChar(10)" />
+    <Parameter Name="link" Type="System.String" DbType="NVarChar(500)" />
+    <ElementType Name="sp_Get_Service_ItemResult">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="caption" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="describe" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="detail" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="detail_en" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="image" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="link" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+</Database>

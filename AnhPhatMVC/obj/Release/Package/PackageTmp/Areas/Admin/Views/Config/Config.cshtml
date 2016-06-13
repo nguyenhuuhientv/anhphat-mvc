@@ -1,0 +1,41 @@
+﻿@model IEnumerable<AnhPhatMVC.Context.config>
+
+@{
+    ViewBag.Title = "Config";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutPageAdmin.cshtml";
+}
+
+<h2>Cấu hình</h2>
+
+<p>
+
+</p>
+<table id="example1" class="table table-bordered table-striped dataTable" aria-describedby="example1_info">
+    <thead>
+        <tr>
+            <th>
+                <a>Khóa</a>
+            </th>
+            <th>
+                <a>Chi tiết</a>
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody role="alert" aria-live="polite" aria-relevant="all">
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.key)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.value)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.id })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
