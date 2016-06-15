@@ -125,13 +125,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/21/2016 17:11:28</publishTime>
     </File>
     <File Include="bin/AnhPhatMVC.dll">
-      <publishTime>06/10/2016 20:18:16</publishTime>
+      <publishTime>06/14/2016 21:59:59</publishTime>
     </File>
     <File Include="bin/Antlr3.Runtime.dll">
       <publishTime>05/21/2016 16:47:54</publishTime>
     </File>
     <File Include="bin/en/AnhPhatMVC.resources.dll">
-      <publishTime>06/10/2016 20:18:16</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="bin/EntityFramework.dll">
       <publishTime>05/21/2016 16:47:56</publishTime>
@@ -1868,10 +1868,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/21/2016 16:47:47</publishTime>
     </File>
     <File Include="Views/DichVu/View.cshtml">
-      <publishTime>06/10/2016 18:17:17</publishTime>
+      <publishTime>06/14/2016 20:07:55</publishTime>
     </File>
     <File Include="Views/GioiThieu/Index.cshtml">
-      <publishTime>06/10/2016 19:32:40</publishTime>
+      <publishTime>06/14/2016 20:05:39</publishTime>
     </File>
     <File Include="Views/Home/About.cshtml">
       <publishTime>05/21/2016 16:47:47</publishTime>
@@ -1892,7 +1892,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/21/2016 19:35:48</publishTime>
     </File>
     <File Include="Views/LienHe/Index.cshtml">
-      <publishTime>06/09/2016 20:20:19</publishTime>
+      <publishTime>06/14/2016 21:34:16</publishTime>
     </File>
     <File Include="Views/Manage/AddPhoneNumber.cshtml">
       <publishTime>05/21/2016 16:47:48</publishTime>
@@ -1928,7 +1928,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/10/2016 18:17:17</publishTime>
     </File>
     <File Include="Views/Shared/Header.cshtml">
-      <publishTime>06/10/2016 20:41:07</publishTime>
+      <publishTime>06/14/2016 21:34:16</publishTime>
     </File>
     <File Include="Views/Shared/Lockout.cshtml">
       <publishTime>05/21/2016 16:47:48</publishTime>
@@ -1955,7 +1955,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/21/2016 16:47:48</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>06/10/2016 19:09:50</publishTime>
+      <publishTime>06/14/2016 22:00:05</publishTime>
     </File>
   </ItemGroup>
 </Project>

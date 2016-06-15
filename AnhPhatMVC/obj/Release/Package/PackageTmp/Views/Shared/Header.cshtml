@@ -43,9 +43,28 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right text-center">
-                <li class="active text-center"><a href="/"><span class="fa fa-home fa-2x icon"></span>@(AnhPhatMVC.Resources.Main.TRANGCHU)</a></li>
-                <li><a href="/gioi-thieu"><span class="fa fa-search fa-2x icon"></span>@(AnhPhatMVC.Resources.Main.GIOITHIEU)</a></li>
-                <li class="dropdown">
+                @{
+                    var url = "";
+                    if (Request.Url.Segments.Count() > 1 && Request.Url.Segments[1] != null)
+                    {
+                        url = Request.Url.Segments[1];
+                    }
+                }
+                <li
+                    @if (url == "" || url == "trang-chu") {
+                    @("class=active")
+                    }
+                ><a href="/"><span class="fa fa-home fa-2x icon"></span>@(AnhPhatMVC.Resources.Main.TRANGCHU)</a></li>
+                <li 
+                    @if (url == "gioi-thieu") {
+                    @("class=active")
+                    }
+                ><a href="/gioi-thieu"><span class="fa fa-search fa-2x icon"></span>@(AnhPhatMVC.Resources.Main.GIOITHIEU)</a></li>
+                <li class="
+                    @if (url == "danh-sach-san-pham/" || url == "san-pham/") {
+                    @("active dropdown")
+                    }
+                    ">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                         <span class="fa fa-shopping-cart fa-2x icon"></span>@(AnhPhatMVC.Resources.Main.SANPHAM)
                     </a>
@@ -60,7 +79,11 @@
                     }   
                         
                 </li>
-                <li class="dropdown">
+                <li class="
+                    @if (url == "dich-vu/") {
+                    @("active dropdown")
+                    }
+                    ">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                         <span class="fa fa-rss fa-2x icon"></span>@(AnhPhatMVC.Resources.Main.DICHVU)
                     </a>
@@ -76,10 +99,16 @@
 
                 </li>
 
-                <li><a href="/tin-tuc"><span class="fa fa-shopping-bag fa-2x icon"></span>@(AnhPhatMVC.Resources.Main.TINTUC)</a></li>
+                <li @if (url == "tin-tuc/" || url=="tin-tuc") {
+                    @("class=active")
+                    } ><a href="/tin-tuc"><span class="fa fa-shopping-bag fa-2x icon"></span>@(AnhPhatMVC.Resources.Main.TINTUC)</a></li>
 
-                <li><a href="/khuyen-mai"><span class="fa fa-percent fa-2x icon"></span>@(AnhPhatMVC.Resources.Main.KHUYENMAI)</a></li>
-                <li><a href="/lien-he"><span class="fa fa-info-circle fa-2x icon"></span>@(AnhPhatMVC.Resources.Main.LIENHE)</a></li>
+                <li @if (url == "khuyen-mai/" || url=="khuyen-mai") {
+                    @("class=active")
+                    }><a href="/khuyen-mai"><span class="fa fa-percent fa-2x icon"></span>@(AnhPhatMVC.Resources.Main.KHUYENMAI)</a></li>
+                <li @if (url == "lien-he") {
+                    @("class=active")
+                    }><a href="/lien-he"><span class="fa fa-info-circle fa-2x icon"></span>@(AnhPhatMVC.Resources.Main.LIENHE)</a></li>
             </ul>
         </div><!--/.nav-collapse -->
     </div>
