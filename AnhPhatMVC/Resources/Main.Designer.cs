@@ -164,7 +164,7 @@ namespace AnhPhatMVC.Resources {
         /// </summary>
         public static string THUONGHIEU {
             get {
-                return ResourceManager.GetString("THUONGHIEU", resourceCulture);
+                return ResourceManager.GetString("KHACHHANG", resourceCulture);
             }
         }
         

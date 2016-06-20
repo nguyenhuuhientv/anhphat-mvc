@@ -70,3 +70,4 @@ D:\C#\AnhPhat\anhphat-mvc\AnhPhatMVC\obj\Release\AnhPhatMVC.csproj.GenerateResou
 D:\C#\AnhPhat\anhphat-mvc\AnhPhatMVC\obj\Release\en\AnhPhatMVC.resources.dll
 D:\C#\AnhPhat\anhphat-mvc\AnhPhatMVC\obj\Release\AnhPhatMVC.dll
 D:\C#\AnhPhat\anhphat-mvc\AnhPhatMVC\obj\Release\AnhPhatMVC.pdb
+D:\C#\AnhPhat\anhphat-mvc\AnhPhatMVC\obj\Release\AnhPhatMVC.csprojResolveAssemblyReference.cache
