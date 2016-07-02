@@ -367,4 +367,8 @@ body {
       }
 .product-box {
      margin-bottom: 30px;
+     min-height: 270px;
+}
+.content .item .image-intro {
+    margin: 0px;
 }
