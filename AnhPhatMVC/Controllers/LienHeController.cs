@@ -7,13 +7,21 @@ using System.Web.Mvc;
 
 namespace AnhPhatMVC.Controllers
 {
-    public class LienHeController : Controller
+    public class LienHeController : AnhPhatController
     {
         AnhPhatDbContextDataContext data = new AnhPhatDbContextDataContext();
         // GET: LienHe
         public ActionResult Index()
         {
-            return View(data.configs.FirstOrDefault(x => x.key == "contact"));
+            if (this.getLanguageCode() == "vn")
+            {
+                return View(data.configs.FirstOrDefault(x => x.key == "contact"));
+            }
+            else
+            {
+                return View(data.configs.FirstOrDefault(x => x.key == "contact_en"));
+            }
+            
         }
     }
 }

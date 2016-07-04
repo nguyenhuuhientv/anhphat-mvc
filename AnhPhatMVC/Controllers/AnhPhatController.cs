@@ -22,8 +22,14 @@ namespace AnhPhatMVC.Controllers
             dynamic modelDynamic = new ExpandoObject();
             modelDynamic.Groups = model;
             modelDynamic.Products = productNewList;
-
-            ViewBag.YoutubeLink = data.configs.FirstOrDefault(x => x.key == "video_intro").value;
+            if (this.getLanguageCode() == "vn")
+            {
+                ViewBag.YoutubeLink = data.configs.FirstOrDefault(x => x.key == "video_intro").value;
+            } else
+            {
+                ViewBag.YoutubeLink = data.configs.FirstOrDefault(x => x.key == "video_intro_en").value;
+            }
+            
             ViewBag.Config_Skype = data.configs.FirstOrDefault(x => x.key == "skype").value;
             return PartialView(modelDynamic);
         }

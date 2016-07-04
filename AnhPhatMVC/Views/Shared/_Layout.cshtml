@@ -38,18 +38,19 @@
 
     @Scripts.Render("~/bundles/modernizr")
     <script type="application/javascript">
-        $(document).ready(function(){
-          $('.bxslider').bxSlider({
-            controls: false
-          });
-          $('.partner').bxSlider({
-            minSlides: 5,
-            maxSlides: 4,
-            slideWidth: 360,
-            slideMargin: 10,
-            pager: false
-          });
-        });
+    $(document).ready(function(){
+      $('.bxslider').bxSlider({
+    auto: true,
+        controls: false
+      });
+      $('.partner').bxSlider({
+        minSlides: 5,
+        maxSlides: 4,
+        slideWidth: 360,
+        slideMargin: 10,
+        pager: false
+      });
+    });
     </script>
     <!--Start of Zopim Live Chat Script-->
     <script type="text/javascript">

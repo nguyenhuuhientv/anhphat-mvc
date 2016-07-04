@@ -7,13 +7,20 @@ using System.Web.Mvc;
 
 namespace AnhPhatMVC.Controllers
 {
-    public class GioiThieuController : Controller
+    public class GioiThieuController : AnhPhatController
     {
         AnhPhatDbContextDataContext data = new AnhPhatDbContextDataContext();
         // GET: GioiThieu
         public ActionResult Index()
         {
-            return View(data.configs.FirstOrDefault(x=>x.key=="introduce"));
+            if (this.getLanguageCode() == "vn")
+            {
+                return View(data.configs.FirstOrDefault(x => x.key == "introduce"));
+            } else
+            {
+                return View(data.configs.FirstOrDefault(x=>x.key=="introduce_en"));
+            }
+            
         }
      
     }
